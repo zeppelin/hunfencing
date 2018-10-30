@@ -1,0 +1,17 @@
+<div class="container">
+  <table class="table table-responsive-sm table-sm table-striped">
+    <tbody>
+      {{#each this.model as |ranking|}}
+        <tr>
+          <td>{{ranking.rank}}</td>
+          <td>{{ranking.name}}</td>
+          <td>{{ranking.club}}</td>
+          <td>{{ranking.birthdate}}</td>
+          <td>{{ranking.category}}</td>
+          <td>{{ranking.points}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
