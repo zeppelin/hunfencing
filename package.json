@@ -54,6 +54,7 @@
     "ember-intl": "^3.5.0",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-page-title": "^4.0.5",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
     "ember-router-helpers": "^0.2.0",
