@@ -18,6 +18,7 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "@ember-decorators/babel-transforms": "^2.1.2",
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
     "@types/ember": "^3.0.25",
@@ -28,6 +29,7 @@
     "@types/ember__test-helpers": "^0.7.6",
     "@types/qunit": "^2.5.3",
     "@types/rsvp": "^4.0.2",
+    "babel-eslint": "^8.2.6",
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.1.0",
     "ember-auto-import": "^1.2.15",
@@ -47,6 +49,7 @@
     "ember-cli-uglify": "^2.1.0",
     "ember-cookies": "^0.3.1",
     "ember-data": "~3.5.0",
+    "ember-decorators": "^3.0.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
