@@ -11,7 +11,7 @@
     "strictPropertyInitialization": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noEmitOnError": false,
     "noEmit": true,
@@ -22,6 +22,9 @@
     "paths": {
       "hunfencing/tests/*": [
         "tests/*"
+      ],
+      "hunfencing/mirage/*": [
+        "mirage/*"
       ],
       "hunfencing/*": [
         "app/*"
