@@ -1,17 +1,35 @@
 <div class="container">
-  <table class="table table-responsive-sm table-sm table-striped">
-    <tbody>
-      {{#each this.model as |ranking|}}
-        <tr>
-          <td>{{ranking.rank}}</td>
-          <td>{{ranking.name}}</td>
-          <td>{{ranking.club}}</td>
-          <td>{{ranking.birthdate}}</td>
-          <td>{{ranking.category}}</td>
-          <td>{{ranking.points}}</td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+  <form class="form-inline mb-4 d-flex">
+    <RankingsCategoryFilter @category={{this.category}} class="mr-2" />
+    <RankingsGenderFilter @gender={{this.gender}} class="mr-2" />
+    <RankingsWeaponFilter @weapon={{this.weapon}} class="mr-2" />
 
+    {{#if this.isLoading}}
+      <span class="badge badge-pill badge-info">{{t "loading"}}</span>
+    {{/if}}
+
+
+    <RankingsSeasonFilter @season={{this.season}} class="ml-auto" />
+  </form>
+
+  {{#if this.model}}
+    <table class="table table-responsive-sm table-sm table-striped">
+      <tbody>
+        {{#each this.model as |ranking|}}
+          <tr>
+            <td>{{ranking.rank}}</td>
+            <td><strong>{{ranking.name}}</strong></td>
+            <td>{{ranking.club}}</td>
+            <td>{{ranking.birthdate}}</td>
+            <td>{{ranking.category}}</td>
+            <td>{{ranking.points}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else if (is-array this.model)}}
+    <div class="alert alert-dark test text-center" role="alert">
+      {{t "error.missing-data"}}
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,21 @@
+<div ...attributes>
+  {{#if (not-eq @season "current")}}
+    <button
+      class="btn btn-light"
+      onclick={{transition-to (query-params season="current")}}
+    >
+      {{t "season.current"}}
+    </button>
+  {{/if}}
+
+  <select
+    class="form-control"
+    onchange={{action select value="target.value"}}
+  >
+    {{#each this.seasons as |season|}}
+      <option selected={{eq season.value @season}} value={{season.value}}>
+        {{season.name}}
+      </option>
+    {{/each}}
+  </select>
+</div>
