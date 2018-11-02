@@ -64,6 +64,7 @@
     "ember-resolver": "^5.0.1",
     "ember-router-helpers": "^0.2.0",
     "ember-source": "~3.5.0",
+    "ember-test-selectors": "^2.0.0",
     "ember-truth-helpers": "^2.1.0",
     "eslint-plugin-ember": "^5.2.0",
     "loader.js": "^4.7.0",
