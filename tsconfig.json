@@ -37,6 +37,7 @@
   },
   "include": [
     "app/**/*",
+    "mirage/**/*",
     "tests/**/*",
     "types/**/*"
   ]
