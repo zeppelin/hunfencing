@@ -13,4 +13,7 @@ declare const config: {
   podModulePrefix: string;
   locationType: string;
   rootURL: string;
+  fastboot: {
+    hostWhitelist: Array<string | RegExp>
+  }
 };
