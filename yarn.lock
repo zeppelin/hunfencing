@@ -4144,6 +4144,14 @@ ember-copy@^1.0.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
+ember-current-url@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ember-current-url/-/ember-current-url-0.0.2.tgz#23464cd2724b7ef7fb99ca086e95cd3a170de37e"
+  dependencies:
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^3.0.1"
+    ember-cli-babel "^6.6.0"
+
 ember-decorators@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-decorators/-/ember-decorators-3.0.0.tgz#23cee0ebea3f86806cd15b638bf5ffb40870ccf4"
