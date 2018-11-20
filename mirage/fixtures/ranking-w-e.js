@@ -4,35 +4,35 @@ export default [
     "name": "SZÁSZ-KOVÁCS Emese",
     "club": "Vasas",
     "birthdate": "1982-09-07",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "5800"
   }, {
     "rank": "2",
     "name": "KUN Anna",
     "club": "OMS-Tata",
     "birthdate": "1995-06-25",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "2390"
   }, {
     "rank": "3",
     "name": "BUDAI Dorina",
     "club": "BHSE",
     "birthdate": "1992-01-20",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "2210"
   }, {
     "rank": "4",
     "name": "SZABÓ Réka",
     "club": "AVA",
     "birthdate": "1995-01-26",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "2070"
   }, {
     "rank": "5",
     "name": "MIHÁLY Kata",
     "club": "DHSE-PMD",
     "birthdate": "1990-08-18",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "2060"
   }, {
     "rank": "6",
@@ -46,7 +46,7 @@ export default [
     "name": "BÜKI Lili",
     "club": "OMS-Tata",
     "birthdate": "2002-05-05",
-    "category": "kadét",
+    "category": "cadet",
     "points": "1720",
   }, {
     "rank": "8",
@@ -60,14 +60,14 @@ export default [
     "name": "VÁRNAI Vivien",
     "club": "BHSE",
     "birthdate": "1994-02-12",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "1480"
   }, {
     "rank": "10",
     "name": "LADÁNYI Nelli",
     "club": "Szolnoki Sportiskola",
     "birthdate": "1998-02-23",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "1270"
   }, {
     "rank": "11",
@@ -81,14 +81,14 @@ export default [
     "name": "NAGY Kinga",
     "club": "DVE",
     "birthdate": "1998-07-07",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "980"
   }, {
     "rank": "13",
     "name": "MUHARI Eszter",
     "club": "BHSE",
     "birthdate": "2002-09-30",
-    "category": "kadét",
+    "category": "cadet",
     "points": "910"
   }, {
     "rank": "14",
@@ -116,21 +116,21 @@ export default [
     "name": "SZABÓ Laura",
     "club": "BVSC",
     "birthdate": "1993-09-27",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "730"
   }, {
     "rank": "18",
     "name": "CSONKA Valéria",
     "club": "Vasas",
     "birthdate": "1996-05-30",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "690"
   }, {
     "rank": "19",
     "name": "ÖHLMÜLLER Sarolta",
     "club": "PTE-PEAC",
     "birthdate": "1996-03-09",
-    "category": "felnőtt",
+    "category": "senior",
     "points": "670"
   }, {
     "rank": "20",

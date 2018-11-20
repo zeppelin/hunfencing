@@ -1,1 +1,84 @@
+$table-accent-bg: rgba(black, 0.02);
+
 @import "ember-bootstrap/bootstrap";
+
+// Rankings
+.rankings-filters {
+  // @extend .form-inline;
+  // @extend .mb-4;
+  // @extend .d-lg-flex;
+
+  .category {
+    // @extend .d-block;
+    // @extend .mb-lg-0;
+    // @extend .mr-lg-2;
+  }
+}
+
+.rankings-table {
+
+  @extend .table;
+  @extend .table-responsive-sm;
+  @extend .table-sm;
+  @extend .table-striped;
+
+  td {
+    @extend .text-nowrap;
+
+    font-size: $font-size-sm;
+
+    @include media-breakpoint-up(lg) {
+      font-size: $font-size-base;
+    }
+  }
+
+  .rank {
+    @extend .pl-2;
+  }
+
+  .name {
+    @extend .font-weight-bold;
+  }
+
+  .birthdate {
+    @extend .d-none;
+    @extend .d-sm-table-cell;
+  }
+
+  .category {
+    @extend .d-none;
+    @extend .d-md-table-cell;
+  }
+
+  .points {
+    @extend .pr-3;
+    @extend .text-right;
+    @extend .font-weight-bold;
+  }
+}
+
+.ranking-category {
+  @extend .px-2;
+  @extend .py-1;
+
+  border: 1px solid;
+  border-radius: 5px;
+
+  &.--senior {
+    border-color: lighten($blue, 25%);
+    color: darken($blue, 25%);
+    background-color: lighten($blue, 40%);
+  }
+
+  &.--junior {
+    border-color: lighten($blue, 35%);
+    color: darken($blue, 20%);
+    background-color: lighten($blue, 45%);
+  }
+
+  &.--cadet {
+    border-color: lighten($blue, 40%);
+    color: darken($blue, 10%);
+    background-color: lighten($blue, 48%);
+  }
+}

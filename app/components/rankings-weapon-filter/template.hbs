@@ -1,5 +1,6 @@
 <BsButtonGroup ...attributes as |bg|>
   <bg.button
+    data-test-weapon-button="e"
     onclick={{transition-to (query-params weapon="e")}}
     class="btn-light {{if (eq @weapon "e") "active"}}"
   >
@@ -7,6 +8,7 @@
   </bg.button>
 
   <bg.button
+    data-test-weapon-button="f"
     onclick={{transition-to (query-params weapon="f")}}
     class="btn-light {{if (eq @weapon "f") "active"}}"
   >
@@ -14,6 +16,7 @@
   </bg.button>
 
   <bg.button
+    data-test-weapon-button="s"
     onclick={{transition-to (query-params weapon="s")}}
     class="btn-light {{if (eq @weapon "s") "active"}}"
   >

@@ -1,5 +1,4 @@
-import weRankingFixtures from './fixtures/ranking-w-e';
-import meRankingFixtures from './fixtures/ranking-m-e';
+import { handleRankings } from './handlers/rankings';
 
 export default function() {
 
@@ -15,21 +14,5 @@ export default function() {
   this.namespace = '/api';    // make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
-  this.get('/rankings', (_schema, { queryParams }) => {
-    let { category, gender, weapon, season } = queryParams;
-
-    if (weapon !== 'e' || season !== 'current' || category !== 'senior') {
-      return [];
-    }
-
-    if (gender === 'm') {
-      return meRankingFixtures;
-    }
-
-    if (gender === 'f') {
-      return weRankingFixtures;
-    }
-
-    return [];
-  });
+  this.get('/rankings', handleRankings);
 }

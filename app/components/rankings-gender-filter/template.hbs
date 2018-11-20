@@ -1,5 +1,6 @@
 <BsButtonGroup ...attributes as |bg|>
   <bg.button
+    data-test-gender-button="m"
     onclick={{transition-to (query-params gender="m")}}
     class="btn-light {{if (eq @gender "m") "active"}}"
   >
@@ -7,6 +8,7 @@
   </bg.button>
 
   <bg.button
+    data-test-gender-button="f"
     onclick={{transition-to (query-params gender="f")}}
     class="btn-light {{if (eq @gender "f") "active"}}"
   >
