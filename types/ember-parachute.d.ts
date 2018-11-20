@@ -26,14 +26,13 @@ declare module "ember-parachute" {
     shouldRefresh: boolean;
   }
   export class QueryParamMixin<T> {
-    // get queryParamsState(): QueryParamsState<T>; // error TS1086: An accessor cannot be declared in an ambient context.
+    queryParamsState(): QueryParamsState<T>;
     setup(queryParamsChangedEvent: ParachuteEvent<T>): void;
     queryParamsDidChange(queryParamsChangedEvent: ParachuteEvent<T>): void;
     reset(queryParamsChangedEvent: ParachuteEvent<T>, isExiting: boolean): void;
   }
   export default class QueryParams<T> {
     constructor(...params: Array<QueryParamOptions<T>>);
-    // get Mixin(): QueryParamMixin<T> & T; // error TS1086: An accessor cannot be declared in an ambient context.
     Mixin(): QueryParamMixin<T> & T;
   }
 }
