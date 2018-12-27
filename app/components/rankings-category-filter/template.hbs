@@ -1,12 +1,65 @@
-<select
-  data-test-category-filter
-  class="form-control"
-  onchange={{action select value="target.value"}}
-  ...attributes
->
-  {{#each this.categories as |category|}}
-    <option selected={{eq category @category}} value={{category}}>
+<BsButtonGroup @type="checkbox" class="btn-group-toggle" ...attributes>
+  {{#each (array "senior" "junior" "cadet") as |category|}}
+    <label
+      data-test-category-filter={{category}}
+      class="btn btn-light {{if (eq category @category) "active"}}"
+    >
+      <input
+        type="radio"
+        value={{category}}
+        checked={{eq category @category}}
+        onchange={{action select value="target.value"}}
+        name="category-{{category}}"
+        autocomplete="off"
+      >
       {{t (concat "category." category)}}
-    </option>
+    </label>
   {{/each}}
-</select>
+
+  {{#if (not (contains @category (array "senior" "junior" "cadet")))}}
+    <label
+      data-test-category-filter={{@category}}
+      class="btn btn-light active"
+    >
+      <input
+        type="radio"
+        value={{@category}}
+        checked
+        onchange={{action select value="target.value"}}
+        name="category-{{category}}"
+        autocomplete="off"
+      >
+      {{t (concat "category." @category)}}
+    </label>
+  {{/if}}
+
+  <BsDropdown class="btn-group" as |dd|>
+    <dd.toggle class="btn btn-light">
+      {{fa-icon "ellipsis-h"}}
+      <span class="caret"></span>
+    </dd.toggle>
+
+    <dd.menu @align="right" as |ddm|>
+      {{#each
+        (array
+          "u16" "u15" "u13"
+          "|"
+          "veteran40" "veteran50" "veteran60" "veteran70"
+          "|"
+          "amateur"
+        )
+      as |category|
+      }}
+        {{#if (eq category "|")}}
+          <ddm.divider />
+        {{else}}
+          <ddm.item>
+            <a {{action select category}} class="dropdown-item" href="#">
+              {{t (concat "category." category)}}
+            </a>
+          </ddm.item>
+        {{/if}}
+      {{/each}}
+    </dd.menu>
+  </BsDropdown>
+</BsButtonGroup>

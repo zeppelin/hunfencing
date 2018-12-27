@@ -8,8 +8,7 @@ import { module, test } from 'qunit';
 import { handleRankings } from '../../mirage/handlers/rankings';
 
 const assertSelectedCategory = (assert: Assert, value: string, text: string) => {
-  assert.dom('[data-test-category-filter]').hasValue(value);
-  assert.dom('[data-test-category-filter] option:checked').hasText(text);
+  assert.dom(`[data-test-category-filter="${value}"]`).hasClass('active');
 };
 
 const assertSelectedGender = (assert: Assert, value: string) => {
@@ -58,7 +57,7 @@ module('Acceptance | rankings', function(hooks) {
 
   module('query params', function(hooks) {
     test('blank state', async function(this: TestContext, assert) {
-      assert.expect(9);
+      assert.expect(8);
 
       this.server.get('/rankings', function() {
         assert.ok(true, 'API was hit');
@@ -79,7 +78,7 @@ module('Acceptance | rankings', function(hooks) {
     });
 
     test('from cookies', async function(assert) {
-      assert.expect(9);
+      assert.expect(8);
 
       this.server.get('/rankings', function() {
         assert.ok(true, 'API was hit');
@@ -108,7 +107,7 @@ module('Acceptance | rankings', function(hooks) {
     });
 
     test('from cookies, navigating back and forth', async function(assert) {
-      assert.expect(10);
+      assert.expect(9);
 
       this.server.get('/rankings', function() {
         assert.ok(true, 'API was hit');

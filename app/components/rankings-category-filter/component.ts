@@ -6,7 +6,7 @@ import { CATEGORY_NAMES, CategoryName } from 'hunfencing/models/category';
 export default class RankingsCategoryFilter extends Component {
   @service router!: any;
 
-  categories = ['senior', 'junior', 'cadet'];
+  categories: CategoryName[] = CATEGORY_NAMES;
 
   select(category: string) {
     this.router.transitionTo({ queryParams: { category } });
