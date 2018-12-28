@@ -1,6 +1,7 @@
 $table-accent-bg: rgba(black, 0.02);
 
 @import "ember-bootstrap/bootstrap";
+@import "./mixins";
 
 // Rankings
 .rankings-filters {
@@ -12,6 +13,10 @@ $table-accent-bg: rgba(black, 0.02);
     // @extend .d-block;
     // @extend .mb-lg-0;
     // @extend .mr-lg-2;
+  }
+
+  .btn {
+    @include btn-sm;
   }
 }
 
