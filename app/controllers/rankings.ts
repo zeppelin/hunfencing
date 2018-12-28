@@ -93,7 +93,8 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     this.set('isLoading', true);
 
     try {
-      let baseURL = 'http://localhost:4200/api/rankings';
+      let { protocol, host } = window.location;
+      let baseURL = `${protocol}//${host}/api/rankings`;
       let qps = serializeQueryParams({ gender, weapon, category, season });
 
       let url = `${baseURL}?${qps}`;
