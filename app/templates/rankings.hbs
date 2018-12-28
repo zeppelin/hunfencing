@@ -1,15 +1,13 @@
 <div class="container">
-  <h1 class="display-4 mb-4">{{t "route.rankings"}}</h1>
+  <div class="d-flex flex-row">
+    <h1 class="display-4 mb-4">{{t "route.rankings"}}</h1>
+    <Spinner @isLoading={{this.isLoading}} class="ml-auto align-self-center" />
+  </div>
 
-  <form class="form-inline mb-4 d-lg-flex">
+  <form class="form-inline mb-4 d-lg-flex rankings-filters">
     <RankingsCategoryFilter @category={{this.category}} class="mr-2" />
     <RankingsGenderFilter @gender={{this.gender}} class="mr-2" />
     <RankingsWeaponFilter @weapon={{this.weapon}} class="mr-2" />
-
-    {{#if this.isLoading}}
-      <span class="badge badge-pill badge-info">{{t "loading"}}</span>
-    {{/if}}
-
     <RankingsSeasonFilter @season={{this.season}} class="ml-lg-auto" />
   </form>
 
