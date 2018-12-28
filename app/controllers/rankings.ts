@@ -9,7 +9,7 @@ import fetch from 'fetch';
 const DEFAULT_CATEGORY = 'senior';
 const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
-const DEFAULT_SEASON = 'current';
+const DEFAULT_SEASON = null;
 
 const queryParams = new QueryParams({
   category: {
@@ -30,12 +30,12 @@ const queryParams = new QueryParams({
   }
 });
 
-type TQueryParams = {
+interface IQueryParams {
   category: Option<string>;
   gender: Option<string>;
   weapon: Option<string>;
   season: Option<string>;
-};
+}
 
 export default class Rankings extends Controller.extend(queryParams.Mixin) {
   @service fastboot!: FastBoot;
@@ -45,7 +45,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
   isLoading = false;
   rankings?: Ranking[];
 
-  async setup({ queryParams }: { queryParams: TQueryParams }) {
+  async setup({ queryParams }: { queryParams: IQueryParams }) {
     if (this.fastboot.isFastBoot) {
       return;
     }
@@ -65,20 +65,18 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     this.handleQueryParams(queryParams, params);
   }
 
-  async queryParamsDidChange({ queryParams }: { queryParams: TQueryParams }) {
+  async queryParamsDidChange({ queryParams }: { queryParams: IQueryParams }) {
     let params = this.buildParams(queryParams);
     this.handleQueryParams(queryParams, params);
   }
 
-  // @ts-ignore TS7006
-  reset(_queryParamsChangedEvent, isExiting: boolean) {
+  reset(_queryParamsChangedEvent: unsafe, isExiting: boolean) {
     if (isExiting) {
-      // @ts-ignore TS2339
       this.resetQueryParams();
     }
   }
 
-  private handleQueryParams(queryParams: any, params: TQueryParams) {
+  private handleQueryParams(queryParams: any, params: IQueryParams) {
     if (this.isTransitionSettled(queryParams, params)) {
       this.updateModel(params);
     } else {
@@ -88,7 +86,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     }
   }
 
-  private async updateModel(params: TQueryParams) {
+  private async updateModel(params: IQueryParams) {
     let { category, gender, weapon, season } = params;
     this.cookies.write('rankings', JSON.stringify({ category, gender, weapon }));
 
@@ -98,8 +96,9 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
       let baseURL = 'http://localhost:4200/api/rankings';
       let qps = serializeQueryParams({ gender, weapon, category, season });
 
-      let url = `${baseURL}?${qps}`
+      let url = `${baseURL}?${qps}`;
 
+      // tslint:disable-next-line: no-console
       console.info('fetching data...', params);
 
       let response = await fetch(url);
@@ -111,7 +110,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     }
   }
 
-  private buildParams(params: TQueryParams): TQueryParams {
+  private buildParams(params: IQueryParams): IQueryParams {
     let { category, gender, weapon, season } = params;
 
     return {
@@ -122,7 +121,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     };
   }
 
-  private isDefaultParams(queryParams: TQueryParams): boolean {
+  private isDefaultParams(queryParams: IQueryParams): boolean {
     let { category, gender, weapon, season } = queryParams;
     return category === DEFAULT_CATEGORY
         && gender === DEFAULT_GENDER
@@ -135,15 +134,16 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     if (cookieValue) {
       try {
         return JSON.parse(cookieValue);
-      } catch(e) {}
+        // tslint:disable-next-line: no-empty
+      } catch (e) {}
     }
   }
 
-  private isTransitionSettled(queryParams: TQueryParams, params: TQueryParams): boolean {
+  private isTransitionSettled(queryParams: IQueryParams, params: IQueryParams): boolean {
     return JSON.stringify(queryParams) === JSON.stringify(params);
   }
 
-  private get defaultParams(): TQueryParams {
+  private get defaultParams(): IQueryParams {
     return {
       category: DEFAULT_CATEGORY,
       gender: DEFAULT_GENDER,

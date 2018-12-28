@@ -2,8 +2,9 @@ import { click, visit } from '@ember/test-helpers';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import clearAllCookies from 'ember-cookies/clear-all-cookies';
 import { setupApplicationTest } from 'ember-qunit';
-import { module, test } from 'qunit';
 import { TestContext } from 'ember-test-helpers';
+import { module, test } from 'qunit';
+
 import { handleRankings } from '../../mirage/handlers/rankings';
 
 const assertSelectedCategory = (assert: Assert, value: string, text: string) => {
@@ -47,10 +48,10 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedWeapon(assert, 'e');
       assertSelectedSeason(assert, 'current', '2018/2019');
 
-      await click('[data-test-gender-button="m"]')
+      await click('[data-test-gender-button="m"]');
       assertSelectedGender(assert, 'm');
 
-      await click('[data-test-gender-button="f"]')
+      await click('[data-test-gender-button="f"]');
       assertSelectedGender(assert, 'f');
     });
   });

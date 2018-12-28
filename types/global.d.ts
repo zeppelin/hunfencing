@@ -1,3 +1,4 @@
+declare type unsafe = any;
 declare type Present = {} | void;
 declare type Option<T> = T | null;
 declare type Maybe<T> = Option<T> | undefined | void;
