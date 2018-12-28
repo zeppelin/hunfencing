@@ -4,7 +4,7 @@ import meRankingFixtures from '../fixtures/ranking-m-e';
 export function handleRankings(_schema, { queryParams }) {
   let { category, gender, weapon, season } = queryParams;
 
-  if (weapon !== 'e' || season !== 'current' || category !== 'senior') {
+  if (!!season || weapon !== 'e' || category !== 'senior') {
     return [];
   }
 

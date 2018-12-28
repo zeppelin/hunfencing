@@ -1,8 +1,8 @@
 <div ...attributes>
-  {{#if (not-eq @season "current")}}
+  {{#if (not-eq @season this.defaultSeason)}}
     <button
       class="btn btn-light"
-      onclick={{transition-to (query-params season="current")}}
+      onclick={{transition-to (query-params season=this.defaultSeason)}}
     >
       {{t "season.current"}}
     </button>

@@ -9,7 +9,7 @@ import fetch from 'fetch';
 const DEFAULT_CATEGORY = 'senior';
 const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
-const DEFAULT_SEASON = null;
+export const DEFAULT_SEASON = null;
 
 const queryParams = new QueryParams({
   category: {
