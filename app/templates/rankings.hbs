@@ -4,12 +4,12 @@
     <Spinner @isLoading={{this.isLoading}} class="ml-auto align-self-center" />
   </div>
 
-  <form class="form-inline mb-4 d-lg-flex rankings-filters">
-    <RankingsCategoryFilter @category={{this.category}} class="mr-2" />
-    <RankingsGenderFilter @gender={{this.gender}} class="mr-2" />
-    <RankingsWeaponFilter @weapon={{this.weapon}} class="mr-2" />
-    <RankingsSeasonFilter @season={{this.season}} class="ml-lg-auto" />
-  </form>
+  <RankingsFilters
+    @category={{this.category}}
+    @gender={{this.gender}}
+    @weapon={{this.weapon}}
+    @season={{this.season}}
+  />
 
   <RankingsTable @rankings={{this.rankings}} />
 </div>

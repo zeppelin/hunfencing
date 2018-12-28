@@ -1,22 +1,64 @@
-<div ...attributes>
-  {{#if (not-eq @season this.defaultSeason)}}
+<button
+  class="to-current-season {{if (eq @season this.defaultSeason) "btn-light" "btn-outline-primary"}}"
+  disabled={{eq @season this.defaultSeason}}
+  onclick={{transition-to (query-params season=this.defaultSeason)}}
+>
+  {{#if (eq @season this.defaultSeason)}}
+    {{t "season.current"}}
+  {{else}}
+    {{t "season.to-current"}}
+  {{/if}}
+</button>
+
+<BsButtonGroup class="seasons btn-group-toggle" ...attributes>
+  {{#if this.previousSeason}}
     <button
       class="btn btn-light"
-      onclick={{transition-to (query-params season=this.defaultSeason)}}
+      onclick={{transition-to (query-params season=this.previousSeason.value)}}
     >
-      {{t "season.current"}}
+      {{fa-icon "arrow-left"}}
     </button>
+  {{else}}
+    <button class="btn btn-light" disabled>{{fa-icon "arrow-left"}}</button>
   {{/if}}
 
-  <select
-    data-test-season-filter
-    class="form-control form-control-sm"
-    onchange={{action select value="target.value"}}
-  >
-    {{#each this.seasons as |season|}}
-      <option selected={{eq season.value @season}} value={{season.value}}>
-        {{season.name}}
-      </option>
-    {{/each}}
-  </select>
-</div>
+  <BsDropdown class="btn-group" as |dd|>
+    <dd.toggle
+      data-test-season-filter
+      class="season-toggle {{if (not-eq @season this.defaultSeason) "text-primary"}}"
+    >
+      <span class>
+        {{this.selectedSeason.name}}
+      </span>
+    </dd.toggle>
+
+    <dd.menu @align="right" as |ddm|>
+      {{#each this.seasons as |season|}}
+        <ddm.item>
+          <a
+            class="dropdown-item"
+            href="#"
+            {{action (transition-to (query-params season=season.value))}}
+          >
+            {{#if (eq season.value @season)}}
+              <strong>{{season.name}}</strong>
+            {{else}}
+              {{season.name}}
+            {{/if}}
+          </a>
+        </ddm.item>
+      {{/each}}
+    </dd.menu>
+  </BsDropdown>
+
+  {{#if this.nextSeason}}
+    <button
+      class="btn btn-light"
+      onclick={{transition-to (query-params season=this.nextSeason.value)}}
+    >
+      {{fa-icon "arrow-right"}}
+    </button>
+  {{else}}
+    <button class="btn btn-light" disabled>{{fa-icon "arrow-right"}}</button>
+  {{/if}}
+</BsButtonGroup>

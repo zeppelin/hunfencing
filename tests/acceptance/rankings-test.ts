@@ -19,9 +19,8 @@ const assertSelectedWeapon = (assert: Assert, value: string) => {
   assert.dom(`[data-test-weapon-button="${value}"]`).hasClass('active');
 };
 
-const assertSelectedSeason = (assert: Assert, value: string, text: string) => {
-  assert.dom('[data-test-season-filter]').hasValue(value);
-  assert.dom('[data-test-season-filter] option:checked').hasText(text);
+const assertSelectedSeason = (assert: Assert, text: string) => {
+  assert.dom('[data-test-season-filter]').hasText(text);
 };
 
 module('Acceptance | rankings', function(hooks) {
@@ -45,7 +44,7 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'senior', intl.t('category.senior'));
       assertSelectedGender(assert, 'f');
       assertSelectedWeapon(assert, 'e');
-      assertSelectedSeason(assert, '2018/2019', '2018/2019');
+      assertSelectedSeason(assert, '2018/2019');
 
       await click('[data-test-gender-button="m"]');
       assertSelectedGender(assert, 'm');
@@ -57,7 +56,7 @@ module('Acceptance | rankings', function(hooks) {
 
   module('query params', function(hooks) {
     test('blank state', async function(this: TestContext, assert) {
-      assert.expect(8);
+      assert.expect(7);
 
       this.server.get('/rankings', function() {
         assert.ok(true, 'API was hit');
@@ -74,11 +73,11 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'senior', intl.t('category.senior'));
       assertSelectedGender(assert, 'f');
       assertSelectedWeapon(assert, 'e');
-      assertSelectedSeason(assert, '2018/2019', '2018/2019');
+      assertSelectedSeason(assert, '2018/2019');
     });
 
     test('from cookies', async function(assert) {
-      assert.expect(8);
+      assert.expect(7);
 
       this.server.get('/rankings', function() {
         assert.ok(true, 'API was hit');
@@ -103,11 +102,11 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'junior', intl.t('category.junior'));
       assertSelectedGender(assert, 'm');
       assertSelectedWeapon(assert, 's');
-      assertSelectedSeason(assert, '2018/2019', '2018/2019');
+      assertSelectedSeason(assert, '2018/2019');
     });
 
     test('from cookies, navigating back and forth', async function(assert) {
-      assert.expect(9);
+      assert.expect(8);
 
       this.server.get('/rankings', function() {
         assert.ok(true, 'API was hit');
@@ -134,7 +133,7 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'junior', intl.t('category.junior'));
       assertSelectedGender(assert, 'm');
       assertSelectedWeapon(assert, 's');
-      assertSelectedSeason(assert, '2018/2019', '2018/2019');
+      assertSelectedSeason(assert, '2018/2019');
     });
   });
 });

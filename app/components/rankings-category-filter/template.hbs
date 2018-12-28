@@ -1,5 +1,5 @@
 <BsButtonGroup @type="checkbox" class="btn-group-toggle" ...attributes>
-  {{#each (array "senior" "junior" "cadet") as |category|}}
+  {{#each this.mainCategories as |category|}}
     <label
       data-test-category-filter={{category}}
       class="btn btn-light {{if (eq category @category) "active"}}"
@@ -16,26 +16,24 @@
     </label>
   {{/each}}
 
-  {{#if (not (contains @category (array "senior" "junior" "cadet")))}}
-    <label
-      data-test-category-filter={{@category}}
-      class="btn btn-light active"
-    >
-      <input
-        type="radio"
-        value={{@category}}
-        checked
-        onchange={{action select value="target.value"}}
-        name="category-{{category}}"
-        autocomplete="off"
-      >
-      {{t (concat "category." @category)}}
-    </label>
-  {{/if}}
-
   <BsDropdown class="btn-group" as |dd|>
-    <dd.toggle class="btn btn-light">
-      {{fa-icon "ellipsis-h"}}
+    <dd.toggle
+      class="btn btn-light text-nowrap {{if (not this.isMainCategorySelected) "active"}}"
+    >
+      {{#if (not isMainCategorySelected)}}
+        <input
+          type="radio"
+          value={{@category}}
+          checked
+          onchange={{action select value="target.value"}}
+          name="category-{{category}}"
+          autocomplete="off"
+        >
+        {{t (concat "category." @category)}}
+      {{else}}
+        {{fa-icon "ellipsis-h"}}
+      {{/if}}
+
       <span class="caret"></span>
     </dd.toggle>
 

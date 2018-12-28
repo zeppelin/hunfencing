@@ -1,25 +1,28 @@
-<BsButtonGroup ...attributes as |bg|>
-  <bg.button
+<div class="btn-group" role="group" ...attributes>
+  <button
     data-test-weapon-button="e"
+    type="button"
     onclick={{transition-to (query-params weapon="e")}}
-    class="btn-light {{if (eq @weapon "e") "active"}}"
+    class="btn btn-light {{if (eq @weapon "e") "active"}}"
   >
     {{t "weapon.epee"}}
-  </bg.button>
+  </button>
 
-  <bg.button
+  <button
     data-test-weapon-button="f"
+    type="button"
     onclick={{transition-to (query-params weapon="f")}}
-    class="btn-light {{if (eq @weapon "f") "active"}}"
+    class="btn btn-light {{if (eq @weapon "f") "active"}}"
   >
     {{t "weapon.foil"}}
-  </bg.button>
+  </button>
 
-  <bg.button
+  <button
     data-test-weapon-button="s"
+    type="button"
     onclick={{transition-to (query-params weapon="s")}}
-    class="btn-light {{if (eq @weapon "s") "active"}}"
+    class="btn btn-light {{if (eq @weapon "s") "active"}}"
   >
     {{t "weapon.sabre"}}
-  </bg.button>
-</BsButtonGroup>
+  </button>
+</div>

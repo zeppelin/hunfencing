@@ -18,20 +18,3 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
-// Rankings
-.rankings-filters {
-  // @extend .form-inline;
-  // @extend .mb-4;
-  // @extend .d-lg-flex;
-
-  .category {
-    // @extend .d-block;
-    // @extend .mb-lg-0;
-    // @extend .mr-lg-2;
-  }
-
-  .btn {
-    @include btn-sm;
-  }
-}

@@ -1,0 +1,23 @@
+.to-current-season,
+.seasons {
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+}
+
+.to-current-season {
+  @extend .btn;
+  @extend .mr-2;
+  @extend .text-nowrap;
+}
+
+.season-toggle {
+  @extend .btn;
+  @extend .btn-light;
+  @extend .text-nowrap;
+  @extend .w-100;
+
+  &::after {
+    display: none;
+  }
+}

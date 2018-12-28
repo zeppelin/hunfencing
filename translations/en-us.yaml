@@ -24,6 +24,7 @@ category:
   u13: U13
 season:
   current: Current season
+  to-current: To current season
 error:
   missing-data: No such data.
 loading: Loading...
