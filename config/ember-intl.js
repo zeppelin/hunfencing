@@ -80,7 +80,9 @@ module.exports = function(/* env */) {
      * @type {Function?}
      * @default "function() { return true; }"
      */
-    // requiresTranslation: (key, locale) => true,
+    requiresTranslation: (key, locale) => {
+      return locale !== 'global' && !key.startsWith('global.');
+    },
 
     /**
      * removes empty translations from the build output.

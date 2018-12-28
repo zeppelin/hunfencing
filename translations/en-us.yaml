@@ -1,5 +1,3 @@
-app:
-  title: MVSZ
 route:
   index: Home
   rankings: Rankings

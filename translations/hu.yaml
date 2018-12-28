@@ -1,0 +1,28 @@
+route:
+  index: Nyitólap
+  rankings: Ranglista
+gender:
+  male: Férfi
+  female: Női
+weapon:
+  epee: Párbajtőr
+  foil: Tőr
+  sabre: Kard
+category:
+  amateur: Szabadidős
+  veteran70: Veterán 70+
+  veteran60: Veterán 60+
+  veteran50: Veterán 50+
+  veteran40: Veterán 40+
+  senior: Felnőtt
+  junior: Junior
+  cadet: Kadét
+  u16: Serdülő
+  u15: Újonc
+  u13: Gyermek
+season:
+  current: Aktuális szezon
+  to-current: Aktuális szezonra
+error:
+  missing-data: Nincs adat.
+loading: Betöltés...
