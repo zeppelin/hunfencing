@@ -27,6 +27,12 @@ module.exports = function(environment) {
     hostWhitelist: []
   };
 
+  // Disabled until it works with angle bracket syntax:
+  // https://github.com/ebryn/ember-component-css/issues/61
+  ENV['ember-component-css'] = {
+    namespacing: false
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
