@@ -4,6 +4,21 @@ $table-accent-bg: rgba(black, 0.02);
 @import "./mixins";
 @import "pod-styles";
 
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.application {
+  @extend .w-100;
+
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
 // Rankings
 .rankings-filters {
   // @extend .form-inline;
