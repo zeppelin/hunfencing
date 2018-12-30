@@ -8,9 +8,7 @@
           <td>{{ranking.club}}</td>
           <td class="birthdate">{{ranking.birthdate}}</td>
           <td class="category">
-            <span class="ranking-category --{{ranking.category}}">
-              {{t (concat "category." ranking.category)}}
-            </span>
+            <AgeGroupBadge @category={{ranking.category}} />
           </td>
           <td class="points">{{ranking.points}}</td>
         </tr>
