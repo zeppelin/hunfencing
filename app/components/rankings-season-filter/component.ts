@@ -34,6 +34,26 @@ export default class RankingsSeasonFilter extends Component<{
     this.router.transitionTo({ queryParams: { season } });
   }
 
+  selectNext() {
+    if (this.nextSeason) {
+      this.router.transitionTo({
+        queryParams: {
+          season: this.nextSeason.value
+        }
+      });
+    }
+  }
+
+  selectPrevious() {
+    if (this.previousSeason) {
+      this.router.transitionTo({
+        queryParams: {
+          season: this.previousSeason.value
+        }
+      });
+    }
+  }
+
   @computed('args.season')
   get previousSeason(): Maybe<ISeason> {
     let index = this.seasons.findIndex(({ value }) => value === this.args.season);
