@@ -40,5 +40,9 @@
     "mirage/**/*",
     "tests/**/*",
     "types/**/*"
+  ],
+  "exclude": [
+    "lib/scraper/**/*",
+    "lib/fastboot-server/**/*"
   ]
 }

@@ -1,20 +1,32 @@
 import weRankingFixtures from '../fixtures/ranking-w-e';
 import meRankingFixtures from '../fixtures/ranking-m-e';
 
+const formatJSONAPI = (data, type) => {
+  return {
+    data: (data || []).map((item) => {
+      return {
+        id: null,
+        type,
+        attributes: item
+      }
+    })
+  };
+};
+
 export function handleRankings(_schema, { queryParams }) {
   let { category, gender, weapon, season } = queryParams;
 
-  if (!!season || weapon !== 'e' || category !== 'senior') {
-    return [];
+  if (season !== '2018-2019' || weapon !== 'e' || category !== 'senior') {
+    return formatJSONAPI(null, 'rankings');
   }
 
   if (gender === 'm') {
-    return meRankingFixtures;
+    return formatJSONAPI(meRankingFixtures, 'rankings');
   }
 
   if (gender === 'f') {
-    return weRankingFixtures;
+    return formatJSONAPI(weRankingFixtures, 'rankings');
   }
 
-  return [];
+  return formatJSONAPI(null, 'rankings');
 }

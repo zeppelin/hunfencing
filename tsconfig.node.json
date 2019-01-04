@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "./node-dist",
+    "pretty": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "target": "es2018",
+  },
+  "files": [
+    "./lib/fastboot-server/index.ts",
+    "./lib/scraper/index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "node-dist"
+  ]
+}

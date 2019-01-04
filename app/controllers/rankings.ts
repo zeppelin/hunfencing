@@ -6,12 +6,13 @@ import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
 import QueryParams from 'ember-parachute';
 import fetch, { AbortController } from 'fetch';
 
+import ENV from 'hunfencing/config/environment';
 import IRanking from 'hunfencing/models/ranking';
 
 const DEFAULT_CATEGORY = 'senior';
 const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
-export const DEFAULT_SEASON = null;
+export const DEFAULT_SEASON = '2018-2019';
 
 const queryParams = new QueryParams({
   category: {
@@ -104,7 +105,9 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
 
     try {
       let { protocol, host } = window.location;
-      let baseURL = `${protocol}//${host}/api/rankings`;
+      let apiHost = ENV.hunfencing.apiHost || host;
+      let baseURL = `${protocol}//${apiHost}/api/rankings`;
+
       let qps = serializeQueryParams({ gender, weapon, category, season });
 
       let url = `${baseURL}?${qps}`;
@@ -113,9 +116,9 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
       console.info('fetching data...', params);
 
       let response = await fetch(url, { signal });
-      let data = await response.json();
+      let { data } = await response.json();
 
-      this.set('rankings', data);
+      this.set('rankings', data.map(({ attributes }: { attributes: Dict<unknown> }) => attributes));
     } catch (err) {
       if (err.name !== 'AbortError') {
         this.set('loadError', true);

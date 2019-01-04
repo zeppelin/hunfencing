@@ -1,4 +1,7 @@
 import { handleRankings } from './handlers/rankings';
+import ENV from 'hunfencing/config/environment';
+
+const API_HOST = ENV.hunfencing.apiHost;
 
 export default function() {
 
@@ -15,4 +18,8 @@ export default function() {
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   this.get('/rankings', handleRankings);
+
+  if (API_HOST) {
+    this.passthrough(`${window.location.protocol}//${API_HOST}/api/**`);
+  }
 }

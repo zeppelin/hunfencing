@@ -1,8 +1,10 @@
+import { CategoryName } from './category';
+
 export default interface IRanking {
   rank: string;
   name: string;
   club: string;
   birthdate: string;
-  category: string;
+  category: CategoryName;
   points: string;
 }

@@ -27,6 +27,10 @@ module.exports = function(environment) {
     hostWhitelist: []
   };
 
+  ENV.hunfencing = {
+    apiHost: undefined // Example format: `localhost:3000`
+  };
+
   // Disabled until it works with angle bracket syntax:
   // https://github.com/ebryn/ember-component-css/issues/61
   ENV['ember-component-css'] = {
