@@ -6,6 +6,8 @@ import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
 import QueryParams from 'ember-parachute';
 import fetch from 'fetch';
 
+import IRanking from 'hunfencing/models/ranking';
+
 const DEFAULT_CATEGORY = 'senior';
 const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
@@ -43,7 +45,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
   @service router!: any;
 
   isLoading = false;
-  rankings?: Ranking[];
+  rankings?: IRanking[];
 
   async setup({ queryParams }: { queryParams: IQueryParams }) {
     if (this.fastboot.isFastBoot) {
