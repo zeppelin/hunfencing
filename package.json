@@ -29,6 +29,7 @@
     "@types/ember__test-helpers": "^0.7.6",
     "@types/qunit": "^2.5.3",
     "@types/qunit-dom": "^0.6.0",
+    "@types/request-promise": "^4.1.42",
     "@types/rsvp": "^4.0.2",
     "babel-eslint": "^8.0.0",
     "bootstrap": "^4.2.1",
