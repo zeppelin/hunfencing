@@ -76,6 +76,7 @@
     "eslint-plugin-ember": "^5.2.0",
     "jsonc-parser": "^2.0.2",
     "loader.js": "^4.7.0",
+    "query-string": "^6.2.0",
     "qunit-dom": "^0.8.0",
     "request-promise": "^4.2.2",
     "sass": "^1.14.3",
