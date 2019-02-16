@@ -45,6 +45,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
   @service router!: any;
 
   isLoading = false;
+  loadError = false;
   rankings?: IRanking[];
 
   abortController: AbortController = new AbortController();
@@ -95,6 +96,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     this.cookies.write('rankings', JSON.stringify({ category, gender, weapon }));
 
     this.abortController.abort(); // Abort the previous request
+    this.set('loadError', false);
     this.set('isLoading', true);
 
     this.abortController = new AbortController();
@@ -116,6 +118,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
       this.set('rankings', data);
     } catch (err) {
       if (err.name !== 'AbortError') {
+        this.set('loadError', true);
         throw err;
       }
     } finally {

@@ -26,3 +26,4 @@ season:
 error:
   missing-data: No such data.
 loading: Loading...
+load-error: There was an error loading the data.

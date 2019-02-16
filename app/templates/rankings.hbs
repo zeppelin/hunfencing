@@ -11,5 +11,11 @@
     @season={{this.season}}
   />
 
-  <RankingsTable @rankings={{this.rankings}} />
+  {{#if this.loadError}}
+    <div class="alert alert-danger text-center">
+      {{t "load-error"}}
+    </div>
+  {{else}}
+    <RankingsTable @rankings={{this.rankings}} />
+  {{/if}}
 </div>
