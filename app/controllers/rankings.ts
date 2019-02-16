@@ -4,7 +4,7 @@ import { schedule } from '@ember/runloop';
 import FastBoot from 'ember-cli-fastboot/service';
 import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
 import QueryParams from 'ember-parachute';
-import fetch from 'fetch';
+import fetch, { AbortController } from 'fetch';
 
 import IRanking from 'hunfencing/models/ranking';
 
@@ -46,6 +46,8 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
 
   isLoading = false;
   rankings?: IRanking[];
+
+  abortController: AbortController = new AbortController();
 
   async setup({ queryParams }: { queryParams: IQueryParams }) {
     if (this.fastboot.isFastBoot) {
@@ -92,7 +94,11 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
     let { category, gender, weapon, season } = params;
     this.cookies.write('rankings', JSON.stringify({ category, gender, weapon }));
 
+    this.abortController.abort(); // Abort the previous request
     this.set('isLoading', true);
+
+    this.abortController = new AbortController();
+    let { signal } = this.abortController;
 
     try {
       let { protocol, host } = window.location;
@@ -104,10 +110,14 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
       // tslint:disable-next-line: no-console
       console.info('fetching data...', params);
 
-      let response = await fetch(url);
+      let response = await fetch(url, { signal });
       let data = await response.json();
 
       this.set('rankings', data);
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        throw err;
+      }
     } finally {
       this.set('isLoading', false);
     }
