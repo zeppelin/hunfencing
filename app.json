@@ -1,0 +1,8 @@
+{
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Must be false because Ember needs devDependencies.",
+      "value": "true"
+    }
+  }
+}

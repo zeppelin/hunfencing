@@ -12,6 +12,10 @@
   },
   "scripts": {
     "build": "ember build",
+    "build-ts": "tsc -p ./tsconfig.node.json",
+    "watch-ts": "tsc -w -p ./tsconfig.node.json",
+    "fastboot-server": "node ./bin/fastboot-server.js dist --serve-assets-from dist --port $PORT",
+    "heroku-postbuild": "yarn run build-ts && ember build --environment=production",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
