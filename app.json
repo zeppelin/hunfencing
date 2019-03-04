@@ -1,4 +1,5 @@
 {
+  "addons": ["heroku-redis"],
   "env": {
     "NPM_CONFIG_PRODUCTION": {
       "description": "Must be false because Ember needs devDependencies.",
