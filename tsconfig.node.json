@@ -12,8 +12,7 @@
     "target": "es2018",
   },
   "files": [
-    "./lib/fastboot-server/index.ts",
-    "./lib/scraper/index.ts"
+    "./lib/fastboot-server/index.ts"
   ],
   "exclude": [
     "node_modules",
