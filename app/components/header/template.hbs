@@ -1,12 +1,39 @@
-<BsNavbar as |navbar|>
+<BsNavbar ...attributes as |navbar|>
   <div class="container">
     <div class="navbar-header">
       {{navbar.toggle}}
-      {{link-to (t "app.title") "index" class="navbar-brand"}}
+      {{link-to
+        (t "global.app.title")
+        "index"
+        class="navbar-brand"
+        data-test-header-link="home"
+      }}
     </div>
 
-    <navbar.content>
+    <navbar.content class="justify-content-between">
       <navbar.nav as |nav|>
+        <nav.item>
+          {{nav.link-to
+            (t "route.rankings")
+            "rankings"
+            data-test-header-link="rankings"
+          }}
+        </nav.item>
+      </navbar.nav>
+
+      <navbar.nav as |nav|>
+        <nav.item>
+          {{#each (array "hu" "en-us" "fr") as |locale|}}
+            <button
+              class="btn btn-link"
+              data-test-header-locale-link={{locale}}
+              href="#"
+              {{action selectLocale locale}}
+            >
+              {{t (concat "global.locale.abbrev." locale)}}
+            </button>
+          {{/each}}
+        </nav.item>
       </navbar.nav>
     </navbar.content>
   </div>

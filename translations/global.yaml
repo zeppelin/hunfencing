@@ -1,0 +1,8 @@
+global:
+  app:
+    title: MVSZ
+  locale:
+    abbrev:
+      hu: HU
+      en-us: EN
+      fr: FR

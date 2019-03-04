@@ -1,0 +1,29 @@
+route:
+  index: Page d'accueil
+  rankings: Classements
+gender:
+  male: Masculin
+  female: Féminin
+weapon:
+  epee: Épée
+  foil: Fleuret
+  sabre: Sabre
+category:
+  amateur: Amatrice
+  veteran70: Vétéran 70+
+  veteran60: Vétéran 60+
+  veteran50: Vétéran 50+
+  veteran40: Vétéran 40+
+  senior: Senior
+  junior: Junior
+  cadet: Cadet
+  u16: U16
+  u15: U15
+  u13: U13
+season:
+  current: Saison en cours
+  to-current: À la saison en cours
+error:
+  missing-data: Pas de donnés.
+loading: Chargement...
+load-error: Une erreur s'est produite lors du chargement des données.

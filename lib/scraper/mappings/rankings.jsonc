@@ -1,0 +1,85 @@
+// If any of the values are missing, return with "no data"
+{
+  "queryParams": {
+    "season": {
+      "paramName": "szezon",
+      "values": {
+        "2018-2019": 8,
+        "2017-2018": 7,
+        "2016-2017": 6,
+        "2015-2016": 5,
+        "2014-2015": 4
+      }
+    },
+    "gender": {
+      "paramName": "nem",
+      "values": {
+        "f": 1,
+        "m": 2
+      }
+    },
+    "weapon": {
+      "paramName": "fegyver",
+      "values": {
+        "s": 1,
+        "f": 2,
+        "e": 3
+      }
+    },
+    "category": {
+      "paramName": "kor",
+      "values": {
+        "veteran70": {
+          "value": 12,
+          "additionalParams": { // encodeURIComponent()
+            "jelzes": "70+"
+          }
+        },
+        "veteran60": {
+          "value": 12,
+          "additionalParams": { // encodeURIComponent()
+            "jelzes": "60+"
+          }
+        },
+        "veteran50": {
+          "value": 12,
+          "additionalParams": { // encodeURIComponent()
+            "jelzes": "50+"
+          }
+        },
+        "veteran40": {
+          "value": 12,
+          "additionalParams": { // encodeURIComponent()
+            "jelzes": "40+"
+          }
+        },
+        "amateur": 11,
+        "senior": 10,
+        "junior": 9,
+        "cadet": 8,
+        "u16": 7,
+        "u15": 6,
+        "u13": 5
+      }
+    }
+  },
+  "attributes": {
+    "category": {
+      "felnőtt": "senior",
+      "Felnőtt": "senior",
+      "Junior": "junior",
+      "kadét": "cadet",
+      "Kadét": "cadet",
+      "serdülő": "u16",
+      "Serdülő": "u16",
+      "újonc": "u15",
+      "Újonc": "u15",
+      "gyermek": "u13",
+      "bambi": "u13",
+      "70+": "veteran70",
+      "60+": "veteran60",
+      "50+": "veteran50",
+      "40+": "veteran40"
+    }
+  }
+}

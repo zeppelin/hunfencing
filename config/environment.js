@@ -23,12 +23,27 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.fastboot = {
+    hostWhitelist: []
+  };
+
+  ENV.hunfencing = {
+    apiHost: undefined // Example format: `localhost:3000`
+  };
+
+  // Disabled until it works with angle bracket syntax:
+  // https://github.com/ebryn/ember-component-css/issues/61
+  ENV['ember-component-css'] = {
+    namespacing: false
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.fastboot.hostWhitelist = [/.*/];
   }
 
   if (environment === 'test') {
@@ -45,6 +60,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+
+    ENV.fastboot.hostWhitelist = [/.*/]; // TODO: configure this!
   }
 
   return ENV;

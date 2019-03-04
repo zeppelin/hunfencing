@@ -1,0 +1,41 @@
+.rankings-table {
+
+  @extend .table;
+  @extend .table-responsive-sm;
+  @extend .table-sm;
+  @extend .table-striped;
+
+  td {
+    @extend .text-nowrap;
+
+    font-size: $font-size-sm;
+
+    @include media-breakpoint-up(lg) {
+      font-size: $font-size-base;
+    }
+  }
+
+  .rank {
+    @extend .pl-2;
+  }
+
+  .name {
+    @extend .font-weight-bold;
+  }
+
+  .birthdate {
+    @extend .d-none;
+    @extend .d-sm-table-cell;
+  }
+
+  .category {
+    @extend .d-none;
+    @extend .d-md-table-cell;
+  }
+
+  .points {
+    @extend .pr-3;
+    @extend .text-right;
+    @extend .font-weight-bold;
+  }
+}

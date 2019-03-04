@@ -1,0 +1,25 @@
+.age-group-badge {
+  @extend .px-2;
+  @extend .py-1;
+
+  border: 1px solid;
+  border-radius: 5px;
+
+  &.--senior {
+    border-color: lighten($blue, 25%);
+    color: darken($blue, 25%);
+    background-color: lighten($blue, 40%);
+  }
+
+  &.--junior {
+    border-color: lighten($blue, 35%);
+    color: darken($blue, 20%);
+    background-color: lighten($blue, 45%);
+  }
+
+  &.--cadet {
+    border-color: lighten($blue, 40%);
+    color: darken($blue, 10%);
+    background-color: lighten($blue, 48%);
+  }
+}

@@ -1,0 +1,22 @@
+.to-current-season {
+  @extend .btn;
+  @extend .btn-light;
+
+  &.--highlight {
+    @extend .text-primary;
+
+    text-decoration: underline;
+  }
+}
+
+.season-dropdown {
+  @extend .mr-2;
+  @extend .text-nowrap;
+}
+
+.season-toggle {
+  @extend .btn;
+  @extend .btn-light;
+  @extend .text-nowrap;
+  @extend .w-100;
+}

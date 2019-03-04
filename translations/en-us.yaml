@@ -1,2 +1,29 @@
-app:
-  title: MVSZ
+route:
+  index: Home
+  rankings: Rankings
+gender:
+  male: Male
+  female: Female
+weapon:
+  epee: Epee
+  foil: Foil
+  sabre: Sabre
+category:
+  amateur: Amateur
+  veteran70: Veteran 70+
+  veteran60: Veteran 60+
+  veteran50: Veteran 50+
+  veteran40: Veteran 40+
+  senior: Senior
+  junior: Junior
+  cadet: Cadet
+  u16: U16
+  u15: U15
+  u13: U13
+season:
+  current: Current season
+  to-current: To current season
+error:
+  missing-data: No such data.
+loading: Loading...
+load-error: There was an error loading the data.

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="d-flex flex-row">
+    <h1 class="display-4 mb-4">{{t "route.rankings"}}</h1>
+    <Spinner @isLoading={{this.isLoading}} class="ml-auto align-self-center" />
+  </div>
+
+  <RankingsFilters
+    @category={{this.category}}
+    @gender={{this.gender}}
+    @weapon={{this.weapon}}
+    @season={{this.season}}
+  />
+
+  {{#if this.loadError}}
+    <div class="alert alert-danger text-center">
+      {{t "load-error"}}
+    </div>
+  {{else}}
+    <RankingsTable @rankings={{this.rankings}} />
+  {{/if}}
+</div>

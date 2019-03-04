@@ -1,0 +1,63 @@
+<BsButtonGroup @type="checkbox" class="btn-group-toggle" ...attributes>
+  {{#each this.mainCategories as |category|}}
+    <label
+      data-test-category-filter={{category}}
+      class="btn btn-light {{if (eq category @category) "active"}}"
+    >
+      <input
+        type="radio"
+        value={{category}}
+        checked={{eq category @category}}
+        onchange={{action select value="target.value"}}
+        name="category-{{category}}"
+        autocomplete="off"
+      >
+      {{t (concat "category." category)}}
+    </label>
+  {{/each}}
+
+  <BsDropdown class="btn-group" as |dd|>
+    <dd.toggle
+      class="btn btn-light text-nowrap {{if (not this.isMainCategorySelected) "active"}}"
+    >
+      {{#if (not isMainCategorySelected)}}
+        <input
+          type="radio"
+          value={{@category}}
+          checked
+          onchange={{action select value="target.value"}}
+          name="category-{{category}}"
+          autocomplete="off"
+        >
+        {{t (concat "category." @category)}}
+      {{else}}
+        {{fa-icon "ellipsis-h"}}
+      {{/if}}
+
+      <span class="caret"></span>
+    </dd.toggle>
+
+    <dd.menu @align="right" as |ddm|>
+      {{#each
+        (array
+          "u16" "u15" "u13"
+          "|"
+          "veteran40" "veteran50" "veteran60" "veteran70"
+          "|"
+          "amateur"
+        )
+      as |category|
+      }}
+        {{#if (eq category "|")}}
+          <ddm.divider />
+        {{else}}
+          <ddm.item>
+            <a {{action select category}} class="dropdown-item" href="#">
+              {{t (concat "category." category)}}
+            </a>
+          </ddm.item>
+        {{/if}}
+      {{/each}}
+    </dd.menu>
+  </BsDropdown>
+</BsButtonGroup>

@@ -1,0 +1,22 @@
+{{#if @rankings}}
+  <table class="rankings-table">
+    <tbody>
+      {{#each @rankings as |ranking|}}
+        <tr>
+          <td class="rank">{{ranking.rank}}</td>
+          <td class="name">{{ranking.name}}</td>
+          <td>{{ranking.club}}</td>
+          <td class="birthdate">{{ranking.birthdate}}</td>
+          <td class="category">
+            <AgeGroupBadge @category={{ranking.category}} />
+          </td>
+          <td class="points">{{ranking.points}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else if (is-array @rankings)}}
+  <div class="alert alert-dark test text-center" role="alert">
+    {{t "error.missing-data"}}
+  </div>
+{{/if}}
