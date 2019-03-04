@@ -3,6 +3,7 @@ import * as $ from 'cheerio';
 import * as rp from 'request-promise';
 
 import IRanking from '../../../app/models/ranking';
+import Cache from '../../fastboot-server/cache';
 import { formatURL, serializeToJSONAPIFormat } from '../api';
 import { readMappingsFromFile } from '../mappings';
 import { IParamMapping } from '../params';
@@ -29,8 +30,18 @@ export const scrapeRankings = async (params: Dict<string>) => {
   let baseURL = 'http://versenyinfo.hunfencing.hu/index.php?p=pRanglista&submit=Mutat';
   let url = formatURL(baseURL, params, mappings.queryParams as IParamMapping);
 
+  let cached = await Cache.get(url);
+
+  if (cached) {
+    return JSON.parse(cached);
+  }
+
   let html = await rp(url);
 
   let responseJSON = extractRows(html);
-  return serializeToJSONAPIFormat('rankings', responseJSON, mappings.attributes as Dict<Dict<unknown>>);
+  let serialized = serializeToJSONAPIFormat('rankings', responseJSON, mappings.attributes as Dict<Dict<unknown>>);
+
+  await Cache.set(url, JSON.stringify(serialized));
+
+  return serialized;
 };
