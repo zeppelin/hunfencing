@@ -1,31 +1,50 @@
 /// <reference path="../../types/global.d.ts" />
-import * as redis from 'redis';
+import { createHandyClient } from 'handy-redis';
 
-const redisClient = redis.createClient(process.env.REDIS_URL || 'redis://localhost:6379');
+interface ScraperResultCacheObject {
+  value: string;
+  lastUpdated: Option<string>;
+}
+
+const client = createHandyClient(process.env.REDIS_URL || 'redis://localhost:6379');
 
 export default class Cache {
-  static get(key: string): Promise<Maybe<string>> {
-    return new Promise((resolve, reject) => {
-      redisClient.get(key, (err, reply) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        resolve(reply);
-      });
-    });
+  static async get(key: string): Promise<Option<ScraperResultCacheObject>> {
+    let type = await client.type(key);
+
+    if (type === 'string') {
+      let value = await client.get(key);
+
+      return {
+        value,
+        lastUpdated: null
+      };
+    } else if (type === 'hash') {
+      let [value, lastUpdated] = await client.hmget(key, 'value', 'lastUpdated');
+      return { value, lastUpdated };
+    }
+
+    return null;
   }
 
-  static set(key: string, value: string): Promise<'OK'> {
-    return new Promise((resolve, reject) => {
-      redisClient.set(key, value, (err, reply) => {
-        if (err) {
-          reject(err);
-          return;
-        }
+  static async set(key: string, value: string) {
+    let type = await client.type(key);
 
-        resolve(reply);
-      });
-    });
+    if (type === 'string') {
+      await client.del(key);
+    }
+
+    return await client.hmset(key, ['value', value], ['lastUpdated', new Date().toISOString()]);
   }
 }
+
+export const needsUpdate = (lastUpdated: string, ttl: number): boolean => {
+  if (!lastUpdated) {
+    return true;
+  }
+
+  let currentDateValue = new Date().valueOf();
+  let lastUpdatedValue = new Date(lastUpdated).valueOf();
+
+  return (currentDateValue - lastUpdatedValue) > ttl;
+};
