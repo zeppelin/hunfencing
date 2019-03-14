@@ -83,6 +83,7 @@
     "loader.js": "^4.7.0",
     "query-string": "^6.2.0",
     "qunit-dom": "^0.8.0",
+    "redis": "^2.8.0",
     "request-promise": "^4.2.2",
     "sass": "^1.14.3",
     "sparkles-component": "^1.1.0",
@@ -93,8 +94,10 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
+    "@types/redis": "^2.8.10",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "fastboot-app-server": "zeppelin/fastboot-app-server#app-option-to-express-http-server"
+    "fastboot-app-server": "zeppelin/fastboot-app-server#app-option-to-express-http-server",
+    "handy-redis": "^1.5.2"
   }
 }
