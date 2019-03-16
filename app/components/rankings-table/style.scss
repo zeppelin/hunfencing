@@ -21,6 +21,30 @@
 
   .name {
     @extend .font-weight-bold;
+    @extend .pr-2;
+
+    a {
+      position: relative;
+      display: inline-block;
+
+      &:hover {
+        @extend .text-primary;
+
+        > .external-link-icon {
+          display: inline-block;
+        }
+      }
+    }
+
+    .external-link-icon {
+      @extend .ml-2;
+
+      display: none;
+      position: absolute;
+      right: -$spacer;
+      top: 15%;
+      font-size: 0.8rem;
+    }
   }
 
   .birthdate {

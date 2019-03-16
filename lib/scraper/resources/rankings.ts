@@ -7,6 +7,7 @@ import Cache, { needsUpdate } from '../../fastboot-server/cache';
 import { formatURL, serializeToJSONAPIFormat } from '../api';
 import { readMappingsFromFile } from '../mappings';
 import { IParamMapping } from '../params';
+import { ROOT_URL } from './';
 
 const CACHE_TTL_PARSED = parseInt(process.env.SCRAPER_CACHE_TTL_MINUTES, 10);
 const CACHE_TTL_MINUTES = !isNaN(CACHE_TTL_PARSED) ? CACHE_TTL_PARSED : 5; // 5 minutes default
@@ -28,9 +29,13 @@ const extractRows = (html: string): IRanking[] => {
       return;
     }
 
-    let result = $(element).find('td').map((_index, el) => $(el).text()).get();
-    let [rank, name, club, birthdate, category, points] = result;
-    rows.push({ rank, name, club, birthdate, category, points });
+    let path = $(element).find('a').first().attr('href');
+    let link = `${ROOT_URL}/${path}`;
+    let id = new URL(link).searchParams.get('sorszam');
+    let cells = $(element).find('td').map((_index, el) => $(el).text()).get();
+
+    let [rank, name, club, birthdate, category, points] = cells;
+    rows.push({ id, rank, name, club, birthdate, category, points, link });
   });
 
   return rows;
@@ -39,7 +44,7 @@ const extractRows = (html: string): IRanking[] => {
 export const scrapeRankings = async (params: Dict<string>) => {
   let mappings = await readMappingsFromFile('rankings');
 
-  let baseURL = 'http://versenyinfo.hunfencing.hu/index.php?p=pRanglista&submit=Mutat';
+  let baseURL = `${ROOT_URL}/index.php?p=pRanglista&submit=Mutat`;
   let url = formatURL(baseURL, params, mappings.queryParams as IParamMapping);
 
   let cached = await Cache.get(url);
