@@ -4550,9 +4550,10 @@ ember-component-css@^0.6.7:
     rsvp "^4.8.4"
     walk-sync "^1.0.1"
 
-ember-composable-helpers@DockYard/ember-composable-helpers:
-  version "2.1.0"
-  resolved "https://codeload.github.com/DockYard/ember-composable-helpers/tar.gz/bf481513cd2a04273cccdc3c18ac6a14c39a7b9e"
+ember-composable-helpers@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/ember-composable-helpers/-/ember-composable-helpers-2.2.0.tgz#a03984eaddf65ee08cb9ff554a24b0d671651af3"
+  integrity sha512-VWFYfxPLkgmEoL5aplh8dEwzAhmERfPzIGZeb+O7PhT0of5SYtJeOJFbIIXV2NkVHcDothwUu3IEALsWBsES8A==
   dependencies:
     broccoli-funnel "^1.0.1"
     ember-cli-babel "^7.1.0"

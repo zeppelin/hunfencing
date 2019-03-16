@@ -60,7 +60,7 @@
     "ember-cli-typescript-blueprints": "^2.0.0",
     "ember-cli-uglify": "^2.1.0",
     "ember-component-css": "^0.6.7",
-    "ember-composable-helpers": "DockYard/ember-composable-helpers",
+    "ember-composable-helpers": "^2.2.0",
     "ember-cookies": "^0.3.1",
     "ember-current-url": "^0.0.2",
     "ember-decorators": "^3.1.0",
