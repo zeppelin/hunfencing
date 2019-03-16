@@ -3,7 +3,8 @@ import Controller from '@ember/controller';
 import { schedule } from '@ember/runloop';
 import FastBoot from 'ember-cli-fastboot/service';
 import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
-import QueryParams from 'ember-parachute';
+// @ts-ignore: ember-parachute is still not playing nicely with TypeScript
+import { queryParam } from 'ember-parachute/decorators';
 import fetch, { AbortController } from 'fetch';
 
 import ENV from 'hunfencing/config/environment';
@@ -14,25 +15,6 @@ const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
 export const DEFAULT_SEASON = '2018-2019';
 
-const queryParams = new QueryParams({
-  category: {
-    refresh: true,
-    defaultValue: DEFAULT_CATEGORY
-  },
-  gender: {
-    refresh: true,
-    defaultValue: null
-  },
-  weapon: {
-    refresh: true,
-    defaultValue: null
-  },
-  season: {
-    refresh: true,
-    defaultValue: DEFAULT_SEASON
-  }
-});
-
 interface IQueryParams {
   category: Option<string>;
   gender: Option<string>;
@@ -40,10 +22,15 @@ interface IQueryParams {
   season: Option<string>;
 }
 
-export default class Rankings extends Controller.extend(queryParams.Mixin) {
+export default class Rankings extends Controller {
   @service fastboot!: FastBoot;
   @service cookies!: any;
   @service router!: any;
+
+  @queryParam({ refresh: true }) category: IQueryParams['category'] = DEFAULT_CATEGORY;
+  @queryParam({ refresh: true }) gender: IQueryParams['gender'] = null;
+  @queryParam({ refresh: true }) weapon: IQueryParams['weapon'] = null;
+  @queryParam({ refresh: true }) season: IQueryParams['season'] = DEFAULT_SEASON;
 
   isLoading = false;
   loadError = false;
@@ -78,6 +65,7 @@ export default class Rankings extends Controller.extend(queryParams.Mixin) {
 
   reset(_queryParamsChangedEvent: unsafe, isExiting: boolean) {
     if (isExiting) {
+      // @ts-ignore: ember-parachute is still not playing nicely with TypeScript
       this.resetQueryParams();
     }
   }
