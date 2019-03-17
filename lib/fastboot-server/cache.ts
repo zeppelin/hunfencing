@@ -36,6 +36,10 @@ export default class Cache {
 
     return await client.hmset(key, ['value', value], ['lastUpdated', new Date().toISOString()]);
   }
+
+  static async keys(pattern: string): Promise<string[]> {
+    return client.keys(pattern);
+  }
 }
 
 export const needsUpdate = (lastUpdated: string, ttl: number): boolean => {
