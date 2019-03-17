@@ -4,5 +4,5 @@ global:
   locale:
     abbrev:
       hu: HU
-      en-us: EN
+      en: EN
       fr: FR
