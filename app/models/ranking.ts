@@ -7,4 +7,5 @@ export default interface IRanking {
   birthdate: string;
   category: CategoryName;
   points: string;
+  link: string;
 }

@@ -4,7 +4,12 @@
       {{#each @rankings as |ranking|}}
         <tr>
           <td class="rank">{{ranking.rank}}</td>
-          <td class="name">{{ranking.name}}</td>
+          <td class="name">
+            <a href={{ranking.link}} class="text-dark" target="_blank" rel="noopener">
+              {{ranking.name}}
+              {{fa-icon "external-link" class="external-link-icon"}}
+            </a>
+          </td>
           <td>{{ranking.club}}</td>
           <td class="birthdate">{{ranking.birthdate}}</td>
           <td class="category">
