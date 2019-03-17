@@ -1,5 +1,8 @@
 {
   "addons": ["heroku-redis"],
+  "buildpacks": [{
+    "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+  }],
   "env": {
     "NPM_CONFIG_PRODUCTION": {
       "description": "Must be false because Ember needs devDependencies.",
