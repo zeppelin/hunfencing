@@ -16,6 +16,7 @@
     "watch-ts": "tsc -w -p ./tsconfig.node.json",
     "fastboot-server": "node ./bin/fastboot-server.js dist --serve-assets-from dist --port $PORT",
     "heroku-postbuild": "yarn run build-ts && ember build --environment=production",
+    "refresh-scraper-cache": "node ./node-dist/lib/tasks/refresh-scraper-cache.js",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
@@ -99,6 +100,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "fastboot-app-server": "zeppelin/fastboot-app-server#app-option-to-express-http-server",
-    "handy-redis": "^1.5.2"
+    "handy-redis": "^1.5.2",
+    "ora": "^3.2.0"
   }
 }

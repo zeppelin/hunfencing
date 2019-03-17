@@ -14,7 +14,7 @@ const CACHE_TTL_MINUTES = !isNaN(CACHE_TTL_PARSED) ? CACHE_TTL_PARSED : 5; // 5 
 
 const CACHE_TTL_MS = 1000 * 60 * (CACHE_TTL_MINUTES);
 
-const makeRequest = async (url: string, mappings: Dict<unknown>) => {
+export const makeRequest = async (url: string, mappings: Dict<unknown>) => {
   let html = await rp(url);
 
   let responseJSON = extractRows(html);
