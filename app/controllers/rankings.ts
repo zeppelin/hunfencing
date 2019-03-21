@@ -6,6 +6,7 @@ import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
 // @ts-ignore: ember-parachute is still not playing nicely with TypeScript
 import { queryParam } from 'ember-parachute/decorators';
 import fetch, { AbortController } from 'fetch';
+import { tracked } from 'sparkles-component';
 
 import ENV from 'hunfencing/config/environment';
 import IRanking from 'hunfencing/models/ranking';
@@ -32,9 +33,9 @@ export default class Rankings extends Controller {
   @queryParam({ refresh: true }) weapon: IQueryParams['weapon'] = null;
   @queryParam({ refresh: true }) season: IQueryParams['season'] = DEFAULT_SEASON;
 
-  isLoading = false;
-  loadError = false;
-  rankings?: IRanking[];
+  @tracked isLoading = false;
+  @tracked loadError = false;
+  @tracked rankings?: IRanking[];
 
   abortController: AbortController = new AbortController();
 
@@ -85,8 +86,8 @@ export default class Rankings extends Controller {
     this.cookies.write('rankings', JSON.stringify({ category, gender, weapon }));
 
     this.abortController.abort(); // Abort the previous request
-    this.set('loadError', false);
-    this.set('isLoading', true);
+    this.loadError = false;
+    this.isLoading = true;
 
     this.abortController = new AbortController();
     let { signal } = this.abortController;
@@ -97,23 +98,31 @@ export default class Rankings extends Controller {
       let baseURL = `${protocol}//${apiHost}/api/rankings`;
 
       let qps = serializeQueryParams({ gender, weapon, category, season });
-
       let url = `${baseURL}?${qps}`;
 
       // tslint:disable-next-line: no-console
       console.info('fetching data...', params);
 
       let response = await fetch(url, { signal });
+
+      // For some reason a 0 status code and a fulfilled request means that the
+      // request was aborted... ¯\_(ツ)_/¯
+      if (response.status === 0) {
+        let error = new Error();
+        error.name = 'AbortError';
+        throw error;
+      }
+
       let { data } = await response.json();
 
-      this.set('rankings', data.map(({ attributes }: { attributes: Dict<unknown> }) => attributes));
+      this.rankings = data.map(({ attributes }: { attributes: Dict<unknown> }) => attributes);
+      this.isLoading = false;
     } catch (err) {
       if (err.name !== 'AbortError') {
-        this.set('loadError', true);
+        this.isLoading = false;
+        this.loadError = true;
         throw err;
       }
-    } finally {
-      this.set('isLoading', false);
     }
   }
 
