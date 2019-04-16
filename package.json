@@ -36,7 +36,7 @@
     "@types/request-promise": "^4.1.42",
     "@types/rsvp": "^4.0.2",
     "babel-eslint": "^8.0.0",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "broccoli-asset-rev": "^2.7.0",
     "cheerio": "^1.0.0-rc.2",
     "ember-ajax": "^4.0.1",
