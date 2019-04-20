@@ -1,7 +1,6 @@
 .rankings-table {
 
   @extend .table;
-  @extend .table-responsive-sm;
   @extend .table-sm;
   @extend .table-striped;
 
@@ -17,15 +16,23 @@
 
   .rank {
     @extend .pl-2;
+
+    width: 0;
   }
 
-  .name {
-    @extend .font-weight-bold;
+  td.name {
     @extend .pr-2;
 
-    a {
+    a.name {
+      @extend .font-weight-bold;
+      @extend .text-dark;
+
       position: relative;
       display: inline-block;
+
+      @include media-breakpoint-down(xs) {
+        white-space: normal;
+      }
 
       &:hover {
         @extend .text-primary;
@@ -45,6 +52,24 @@
       top: 15%;
       font-size: 0.8rem;
     }
+  }
+
+  .club {
+    @extend .d-none;
+    @extend .d-sm-table-cell;
+  }
+
+  .club-xs {
+    @extend .text-muted;
+    @extend .mr-auto;
+
+    white-space: normal;
+  }
+
+  .birthdate-xs {
+    @extend .text-muted;
+
+    margin-bottom: 0.1rem;
   }
 
   .birthdate {

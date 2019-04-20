@@ -4,18 +4,27 @@
       {{#each @rankings as |ranking|}}
         <tr>
           <td class="rank">{{ranking.rank}}</td>
-          <td class="name">
-            <a href={{ranking.link}} class="text-dark" target="_blank" rel="noopener">
-              {{ranking.name}}
-              {{fa-icon "external-link" class="external-link-icon"}}
-            </a>
+          <td class="name w-100 w-sm-auto">
+            <div class="d-flex">
+              <a href={{ranking.link}} class="name mr-auto" target="_blank" rel="noopener">
+                {{ranking.name}}
+                {{fa-icon "external-link" class="external-link-icon"}}
+              </a>
+
+              <strong class="d-sm-none text-info">{{ranking.points}}</strong>
+            </div>
+
+            <div class="d-flex d-sm-none align-items-end">
+              <span class="club-xs">{{ranking.club}}</span>
+              <small class="birthdate-xs">{{ranking.birthdate}}</small>
+            </div>
           </td>
-          <td>{{ranking.club}}</td>
+          <td class="club">{{ranking.club}}</td>
           <td class="birthdate">{{ranking.birthdate}}</td>
           <td class="category">
             <AgeGroupBadge @category={{ranking.category}} />
           </td>
-          <td class="points">{{ranking.points}}</td>
+          <td class="points d-none d-sm-table-cell">{{ranking.points}}</td>
         </tr>
       {{/each}}
     </tbody>
