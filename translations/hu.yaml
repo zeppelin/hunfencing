@@ -1,5 +1,6 @@
 route:
   index: Nyitólap
+  news: Hírek
   rankings: Ranglista
 gender:
   male: Férfi
@@ -27,3 +28,4 @@ error:
   missing-data: Nincs adat.
 loading: Betöltés...
 load-error: Nem sikerült betölteni a listát.
+more: Tovább...
