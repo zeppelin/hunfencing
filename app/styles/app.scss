@@ -1,4 +1,5 @@
 $table-accent-bg: rgba(black, 0.02);
+$enable-responsive-font-sizes: true;
 
 @import "ember-bootstrap/bootstrap";
 @import "./mixins";
@@ -17,4 +18,12 @@ body {
 
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+section.article {
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+  img {
+    @extend .img-fluid;
+  }
 }

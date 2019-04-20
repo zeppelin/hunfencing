@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('rankings');
+  this.route('news', { path: 'news/:id' });
 });
 
 export default Router;

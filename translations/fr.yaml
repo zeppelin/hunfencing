@@ -1,5 +1,6 @@
 route:
   index: Page d'accueil
+  news: Actualités
   rankings: Classements
 gender:
   male: Masculin
@@ -27,3 +28,4 @@ error:
   missing-data: Pas de donnés.
 loading: Chargement...
 load-error: Une erreur s'est produite lors du chargement des données.
+more: Plus...

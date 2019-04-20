@@ -1,0 +1,15 @@
+{{#each @news as |news|}}
+  <div class="col-md-4">
+    <div class="card mx-2 mb-3">
+      {{#link-to "news" news.id}}
+        <img src={{news.thumb}} class="card-img-top" alt={{news.title}}>
+      {{/link-to}}
+
+      <div class="card-body">
+        <h5 class="card-title">{{news.title}}</h5>
+        <p class="card-text">{{news.desc}}</p>
+        {{link-to (t "more") "news" news.id class="card-link"}}
+      </div>
+    </div>
+  </div>
+{{/each}}

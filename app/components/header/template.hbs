@@ -14,6 +14,13 @@
       <navbar.nav as |nav|>
         <nav.item>
           {{nav.link-to
+            (t "route.news")
+            "index"
+            data-test-header-link="news"
+          }}
+        </nav.item>
+        <nav.item>
+          {{nav.link-to
             (t "route.rankings")
             "rankings"
             data-test-header-link="rankings"
