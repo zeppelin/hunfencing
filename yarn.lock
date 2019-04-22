@@ -4314,6 +4314,14 @@ ember-cli-sass@^8.0.1:
     broccoli-sass-source-maps "^4.0.0"
     ember-cli-version-checker "^2.1.0"
 
+ember-cli-simple-store@^5.9.4:
+  version "5.9.4"
+  resolved "https://registry.yarnpkg.com/ember-cli-simple-store/-/ember-cli-simple-store-5.9.4.tgz#c01d2943e95f3dcee7ff83979497db474851b9e5"
+  integrity sha512-e4n+veHO1b/iInkUrl8C+Xx7dg+6lO1pt//LG7eAtEQoGAMzNAu0TFQWfVFznZe+6rF4iEQjAedoRLIJIMRWHg==
+  dependencies:
+    ember-cli-babel "^6.8.2"
+    ember-runtime-enumerable-includes-polyfill "^2.1.0"
+
 ember-cli-sri@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ember-cli-sri/-/ember-cli-sri-2.1.1.tgz#971620934a4b9183cf7923cc03e178b83aa907fd"
@@ -4828,7 +4836,7 @@ ember-router-service-polyfill@^1.0.1:
   dependencies:
     ember-cli-babel "^6.8.2"
 
-ember-runtime-enumerable-includes-polyfill@^2.0.0:
+ember-runtime-enumerable-includes-polyfill@^2.0.0, ember-runtime-enumerable-includes-polyfill@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ember-runtime-enumerable-includes-polyfill/-/ember-runtime-enumerable-includes-polyfill-2.1.0.tgz#dc6d4a028471e4acc350dfd2a149874fb20913f5"
   dependencies:
