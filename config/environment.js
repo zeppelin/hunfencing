@@ -28,7 +28,8 @@ module.exports = function(environment) {
   };
 
   ENV.hunfencing = {
-    apiHost: undefined // Example format: `localhost:3000`
+    apiHost: undefined, // Example format: `localhost:3000`
+    defaultLocale: 'en'
   };
 
   // Disabled until it works with angle bracket syntax:
