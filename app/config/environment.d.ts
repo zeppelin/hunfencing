@@ -18,5 +18,6 @@ declare const config: {
   };
   hunfencing: {
     apiHost?: string;
+    defaultLocale: string;
   };
 };
