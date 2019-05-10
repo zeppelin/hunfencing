@@ -4,6 +4,7 @@
 
 # compiled output
 /dist/
+/node-dist/
 /tmp/
 
 # dependencies
