@@ -14,7 +14,7 @@ import IRanking from 'hunfencing/models/ranking';
 const DEFAULT_CATEGORY = 'senior';
 const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
-export const DEFAULT_SEASON = '2018-2019';
+export const DEFAULT_SEASON = '2019-2020';
 
 interface IQueryParams {
   category: Option<string>;
