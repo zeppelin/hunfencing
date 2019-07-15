@@ -17,7 +17,8 @@ export default class RankingsSeasonFilter extends Component<{
 
   // TODO extract this
   seasons = [
-    { name: '2018/2019', value: DEFAULT_SEASON },
+    { name: '2019/2020', value: DEFAULT_SEASON },
+    { name: '2018/2019', value: '2018-2019' },
     { name: '2017/2018', value: '2017-2018' },
     { name: '2016/2017', value: '2016-2017' },
     { name: '2015/2016', value: '2015-2016' },

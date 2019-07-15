@@ -16,7 +16,7 @@ const formatJSONAPI = (data, type) => {
 export function handleRankings(_schema, { queryParams }) {
   let { category, gender, weapon, season } = queryParams;
 
-  if (season !== '2018-2019' || weapon !== 'e' || category !== 'senior') {
+  if (season !== '2019-2020' || weapon !== 'e' || category !== 'senior') {
     return formatJSONAPI(null, 'rankings');
   }
 
