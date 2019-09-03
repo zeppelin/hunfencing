@@ -1,5 +1,5 @@
 import { handleRankings } from './handlers/rankings';
-import ENV from 'hunfencing/config/environment';
+import ENV from '@hunfencing/client/config/environment';
 
 const API_HOST = ENV.hunfencing.apiHost;
 

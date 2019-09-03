@@ -20,13 +20,13 @@
     "baseUrl": ".",
     "module": "es6",
     "paths": {
-      "hunfencing/tests/*": [
+      "@hunfencing/client/tests/*": [
         "tests/*"
       ],
-      "hunfencing/mirage/*": [
+      "@hunfencing/client/mirage/*": [
         "mirage/*"
       ],
-      "hunfencing/*": [
+      "@hunfencing/client/*": [
         "app/*"
       ],
       "*": [

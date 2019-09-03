@@ -1,7 +1,6 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
-
-import { DEFAULT_SEASON } from 'hunfencing/controllers/rankings';
+import { DEFAULT_SEASON } from '@hunfencing/client/controllers/rankings';
 
 interface ISeason {
   name: string;
