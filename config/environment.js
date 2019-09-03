@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'hunfencing',
+    modulePrefix: '@hunfencing/client',
     environment,
     rootURL: '/',
     locationType: 'auto',

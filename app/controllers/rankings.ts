@@ -2,14 +2,13 @@ import Controller from '@ember/controller';
 import { schedule } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import ENV from '@hunfencing/client/config/environment';
+import IRanking from '@hunfencing/client/models/ranking';
 // @ts-ignore
 import FastBootService from 'ember-cli-fastboot/services/fastboot';
 import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
 import QueryParams from 'ember-parachute';
 import fetch, { AbortController } from 'fetch';
-
-import ENV from 'hunfencing/config/environment';
-import IRanking from 'hunfencing/models/ranking';
 
 const DEFAULT_CATEGORY = 'senior';
 const DEFAULT_GENDER = 'f';

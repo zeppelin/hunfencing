@@ -1,7 +1,6 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
-
-import { CATEGORY_NAMES, CategoryName } from 'hunfencing/models/category';
+import { CATEGORY_NAMES, CategoryName } from '@hunfencing/client/models/category';
 
 export default class RankingsCategoryFilter extends Component<{
   category?: CategoryName;
