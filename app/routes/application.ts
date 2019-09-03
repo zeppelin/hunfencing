@@ -1,7 +1,7 @@
-import { service } from '@ember-decorators/service';
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 import { pick as pickAcceptLanguage } from 'accept-language-parser';
-import FastBootService from 'ember-cli-fastboot/service';
+import FastBootService from 'ember-cli-fastboot/services/fastboot';
 
 import ENV from 'hunfencing/config/environment';
 

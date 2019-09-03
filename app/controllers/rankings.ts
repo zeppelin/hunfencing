@@ -1,12 +1,12 @@
-import { service } from '@ember-decorators/service';
 import Controller from '@ember/controller';
 import { schedule } from '@ember/runloop';
-import FastBoot from 'ember-cli-fastboot/service';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+// @ts-ignore
+import FastBootService from 'ember-cli-fastboot/services/fastboot';
 import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
-// @ts-ignore: ember-parachute is still not playing nicely with TypeScript
-import { queryParam } from 'ember-parachute/decorators';
+import QueryParams from 'ember-parachute';
 import fetch, { AbortController } from 'fetch';
-import { tracked } from 'sparkles-component';
 
 import ENV from 'hunfencing/config/environment';
 import IRanking from 'hunfencing/models/ranking';
@@ -16,6 +16,25 @@ const DEFAULT_GENDER = 'f';
 const DEFAULT_WEAPON = 'e';
 export const DEFAULT_SEASON = '2019-2020';
 
+const rankingsQueryParams = new QueryParams({
+  category: {
+    refresh: true,
+    defaultValue: DEFAULT_CATEGORY
+  },
+  gender: {
+    refresh: true,
+    defaultValue: null
+  },
+  weapon: {
+    refresh: true,
+    defaultValue: null
+  },
+  season: {
+    refresh: true,
+    defaultValue: DEFAULT_SEASON
+  }
+});
+
 interface IQueryParams {
   category: Option<string>;
   gender: Option<string>;
@@ -23,15 +42,10 @@ interface IQueryParams {
   season: Option<string>;
 }
 
-export default class Rankings extends Controller {
-  @service fastboot!: FastBoot;
+export default class Rankings extends Controller.extend(rankingsQueryParams.Mixin) {
   @service cookies!: any;
+  @service fastboot!: FastBootService;
   @service router!: any;
-
-  @queryParam({ refresh: true }) category: IQueryParams['category'] = DEFAULT_CATEGORY;
-  @queryParam({ refresh: true }) gender: IQueryParams['gender'] = null;
-  @queryParam({ refresh: true }) weapon: IQueryParams['weapon'] = null;
-  @queryParam({ refresh: true }) season: IQueryParams['season'] = DEFAULT_SEASON;
 
   @tracked isLoading = false;
   @tracked loadError = false;
