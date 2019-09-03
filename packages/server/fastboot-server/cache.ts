@@ -1,4 +1,3 @@
-/// <reference path="../../types/global.d.ts" />
 import { createHandyClient } from 'handy-redis';
 
 interface ScraperResultCacheObject {

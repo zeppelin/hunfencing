@@ -39,10 +39,10 @@
     "app/**/*",
     "mirage/**/*",
     "tests/**/*",
-    "types/**/*"
+    "types/**/*",
+    "../shared/**/*"
   ],
   "exclude": [
-    "lib/scraper/**/*",
     "lib/fastboot-server/**/*"
   ]
 }

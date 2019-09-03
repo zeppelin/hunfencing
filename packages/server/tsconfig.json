@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "outDir": "../../dist-server",
+    "pretty": true,
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "target": "es2018"
+  },
+  "files": [
+    "../shared/global.d.ts",
+    "./fastboot-server/index.ts",
+    "./tasks/refresh-scraper-cache.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist-server"
+  ],
+  "include": [
+    "../shared/**/*"
+  ],
+  "paths": {
+    "@hunfencing/client": [
+      "../packages/client/*"
+    ]
+  }
+}
