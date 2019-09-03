@@ -1,5 +1,5 @@
-import { service } from '@ember-decorators/service';
-import Component, { tracked } from 'sparkles-component';
+import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
 
 import { CATEGORY_NAMES, CategoryName } from 'hunfencing/models/category';
 
@@ -15,7 +15,6 @@ export default class RankingsCategoryFilter extends Component<{
     this.router.transitionTo({ queryParams: { category } });
   }
 
-  @tracked('args')
   get isMainCategorySelected() {
     let { category } = this.args;
     if (!category) {

@@ -1,5 +1,5 @@
-import { service } from '@ember-decorators/service';
-import Component from 'sparkles-component';
+import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
 
 export default class RankingsSeasonFilter extends Component {
   @service intl!: unsafe;

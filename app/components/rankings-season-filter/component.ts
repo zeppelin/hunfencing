@@ -1,5 +1,5 @@
-import { service } from '@ember-decorators/service';
-import Component, { tracked } from 'sparkles-component';
+import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
 
 import { DEFAULT_SEASON } from 'hunfencing/controllers/rankings';
 
@@ -25,7 +25,6 @@ export default class RankingsSeasonFilter extends Component<{
     { name: '2014/2015', value: '2014-2015' }
   ];
 
-  @tracked('args')
   get selectedSeason(): Maybe<ISeason> {
     return this.seasons.find(({ value }) => value === this.args.season );
   }
@@ -54,7 +53,6 @@ export default class RankingsSeasonFilter extends Component<{
     }
   }
 
-  @tracked('args')
   get previousSeason(): Maybe<ISeason> {
     let index = this.seasons.findIndex(({ value }) => value === this.args.season);
     if (index < 0) {
@@ -64,7 +62,6 @@ export default class RankingsSeasonFilter extends Component<{
     return this.seasons[index + 1];
   }
 
-  @tracked('args')
   get nextSeason(): Maybe<ISeason> {
     let index = this.seasons.findIndex(({ value }) => value === this.args.season);
     if (index < 0) {

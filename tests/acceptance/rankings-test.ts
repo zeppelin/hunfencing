@@ -44,7 +44,7 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'senior', intl.t('category.senior'));
       assertSelectedGender(assert, 'f');
       assertSelectedWeapon(assert, 'e');
-      assertSelectedSeason(assert, '2018/2019');
+      assertSelectedSeason(assert, '2019/2020');
 
       await click('[data-test-gender-button="m"]');
       assertSelectedGender(assert, 'm');
@@ -73,7 +73,7 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'senior', intl.t('category.senior'));
       assertSelectedGender(assert, 'f');
       assertSelectedWeapon(assert, 'e');
-      assertSelectedSeason(assert, '2018/2019');
+      assertSelectedSeason(assert, '2019/2020');
     });
 
     test('from cookies', async function(assert) {
@@ -102,7 +102,7 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'junior', intl.t('category.junior'));
       assertSelectedGender(assert, 'm');
       assertSelectedWeapon(assert, 's');
-      assertSelectedSeason(assert, '2018/2019');
+      assertSelectedSeason(assert, '2019/2020');
     });
 
     test('from cookies, navigating back and forth', async function(assert) {
@@ -133,7 +133,7 @@ module('Acceptance | rankings', function(hooks) {
       assertSelectedCategory(assert, 'junior', intl.t('category.junior'));
       assertSelectedGender(assert, 'm');
       assertSelectedWeapon(assert, 's');
-      assertSelectedSeason(assert, '2018/2019');
+      assertSelectedSeason(assert, '2019/2020');
     });
   });
 });

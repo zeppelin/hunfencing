@@ -9,7 +9,7 @@ export const formatURL = (baseURL: string, params: Dict<string>, mappings: Dict<
 
 export const serializeToJSONAPIFormat = (
   type: string,
-  rows: Array<Dict<unknown>>,
+  rows: Array<Dict<any>>,
   attributeMappings: Dict<Dict<unknown>>
 ) => {
   let data = rows.map((row) => {
