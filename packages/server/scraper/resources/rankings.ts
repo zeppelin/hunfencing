@@ -1,8 +1,7 @@
-/// <reference path="../../../types/global.d.ts" />
+import IRanking from '@hunfencing/client/app/models/ranking';
 import * as $ from 'cheerio';
 import * as rp from 'request-promise';
 
-import IRanking from '../../../app/models/ranking';
 import Cache, { needsUpdate } from '../../fastboot-server/cache';
 import { formatURL, serializeToJSONAPIFormat } from '../api';
 import { readMappingsFromFile } from '../mappings';

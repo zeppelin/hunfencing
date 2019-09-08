@@ -7,7 +7,8 @@ process.title = 'ember-fastboot';
 var FastBootAppServer = require('fastboot-app-server');
 var RSVP = require('rsvp');
 var parseArgs = require('minimist');
-var httpServer = require('../node-dist/lib/fastboot-server')['default'];
+var httpServerPath = require('path').join(process.cwd(), 'dist-server/fastboot-server');
+var httpServer = require(httpServerPath)['default'];
 
 var argOptions = {
   default: { port: 3000, host: '::' }

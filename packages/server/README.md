@@ -3,11 +3,11 @@
 ## Development
 
 ```
-$ tsc -w -p ./tsconfig.node.json
+$ tsc -w -p ./tsconfig.json
 ```
 
 In another terminal window:
 
 ```
-$ nodemon ./node-dist/<path-to-file>.js
+$ nodemon ../../dist-server/<path-to-file>.js
 ```
