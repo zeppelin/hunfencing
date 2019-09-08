@@ -12,7 +12,13 @@
     "fastboot-server": "node ./bin/fastboot-server.js ./dist-client --serve-assets-from ./dist-client --port $PORT",
     "deploy-build": "yarn build-server && yarn build-client --environment=production",
     "refresh-scraper-cache": "node ./dist-server/tasks/refresh-scraper-cache.js",
-    "heroku-postbuild": "yarn deploy-build"
+    "heroku-postbuild": "yarn deploy-build",
+    "test": "lerna run test"
   },
-  "workspaces": ["packages/*"]
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  }
 }
