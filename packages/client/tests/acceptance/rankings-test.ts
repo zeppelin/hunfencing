@@ -8,15 +8,15 @@ import { module, test } from 'qunit';
 import { handleRankings } from '../../mirage/handlers/rankings';
 
 const assertSelectedCategory = (assert: Assert, value: string, text: string) => {
-  assert.dom(`[data-test-category-filter="${value}"]`).hasClass('active');
+  assert.dom(`[data-test-category-filter="${value}"]`).hasClass('--active');
 };
 
 const assertSelectedGender = (assert: Assert, value: string) => {
-  assert.dom(`[data-test-gender-button="${value}"]`).hasClass('active');
+  assert.dom(`[data-test-gender-button="${value}"]`).hasClass('--active');
 };
 
 const assertSelectedWeapon = (assert: Assert, value: string) => {
-  assert.dom(`[data-test-weapon-button="${value}"]`).hasClass('active');
+  assert.dom(`[data-test-weapon-button="${value}"]`).hasClass('--active');
 };
 
 const assertSelectedSeason = (assert: Assert, text: string) => {

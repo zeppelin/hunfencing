@@ -5,7 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import ENV from '@hunfencing/client/config/environment';
 import IRanking from '@hunfencing/client/models/ranking';
 // @ts-ignore
-import FastBootService from 'ember-cli-fastboot/services/fastboot';
+import FastBootService from 'ember-cli-fastboot/service';
 import { serializeQueryParams } from 'ember-fetch/utils/serialize-query-params';
 import QueryParams from 'ember-parachute';
 import fetch, { AbortController } from 'fetch';

@@ -1,40 +1,58 @@
-<BsNavbar ...attributes as |navbar|>
-  <div class="container">
-    <div class="navbar-header">
-      {{navbar.toggle}}
-      {{link-to
-        (t "global.app.title")
-        "index"
-        class="navbar-brand"
-        data-test-header-link="home"
-      }}
-    </div>
-
-    <navbar.content class="justify-content-between">
-      <navbar.nav as |nav|>
-        <nav.item>
-          {{nav.link-to
-            (t "route.rankings")
-            "rankings"
-            data-test-header-link="rankings"
-          }}
-        </nav.item>
-      </navbar.nav>
-
-      <navbar.nav as |nav|>
-        <nav.item>
-          {{#each (array "hu" "en" "fr") as |locale|}}
-            <button
-              class="btn btn-link"
-              data-test-header-locale-link={{locale}}
-              href="#"
-              {{action selectLocale locale}}
-            >
-              {{t (concat "global.locale.abbrev." locale)}}
-            </button>
-          {{/each}}
-        </nav.item>
-      </navbar.nav>
-    </navbar.content>
+<div class="container mx-auto h-16 flex items-center">
+  <div class="mx-4">
+    <LinkTo @route="index" class="font-bold" data-test-header-link="home">
+      {{t "global.app.title"}}
+    </LinkTo>
   </div>
-</BsNavbar>
+
+  <ul class="flex">
+    <li class="mx-4">
+      <LinkTo @route="rankings" class="border-b-2 border-yellow-400" data-test-header-link="rankings">
+        {{t "route.rankings"}}
+      </LinkTo>
+    </li>
+  </ul>
+
+  <div class="ml-auto">
+    <ul class="hidden sm:flex">
+      {{#each (array "hu" "en" "fr") as |locale|}}
+        <li class="mx-4">
+          <button
+            {{on "click" (action selectLocale locale)}}
+            type="button"
+            data-test-header-locale-link={{locale}}
+            disabled={{eq locale this.currentLocale}}
+            class={{if (eq locale this.currentLocale) "text-gray-400 cursor-default"}}
+          >
+            {{t (concat "global.locale.abbrev." locale)}}
+          </button>
+        </li>
+      {{/each}}
+    </ul>
+
+    <BasicDropdown @horizontalPosition="auto-right" as |dd|>
+      <dd.Trigger class="sm:hidden mx-4 flex items-center">
+        {{t (concat "global.locale.abbrev." this.currentLocale)}}
+        {{fa-icon "chevron-down" class="text-xs ml-1 text-gray-700"}}
+      </dd.Trigger>
+
+      <dd.Content {{on "click" (action dd.actions.close)}} class="Dropdown__container">
+        <ul class="Dropdown__list">
+          {{#each (array "hu" "en" "fr") as |locale|}}
+            <li>
+              <button
+                {{on "click" (action selectLocale locale)}}
+                type="button"
+                data-test-header-locale-link={{locale}}
+                disabled={{eq locale this.currentLocale}}
+                class="Dropdown__link {{if (eq locale this.currentLocale) "text-gray-400"}}"
+              >
+                {{t (concat "global.locale.abbrev." locale)}}
+              </button>
+            </li>
+          {{/each}}
+        </ul>
+      </dd.Content>
+    </BasicDropdown>
+  </div>
+</div>

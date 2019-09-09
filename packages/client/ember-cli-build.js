@@ -1,13 +1,45 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const isProduction = EmberApp.env() === 'production';
+
+const purgeCSS = {
+  module: require('@fullhuman/postcss-purgecss'),
+  options: {
+    content: [
+      // add extra paths here for components/controllers which include tailwind classes
+      './app/index.html',
+      './app/components/**/*.hbs',
+      './app/templates/**/*.hbs'
+    ],
+    whitelistPatterns: [/^--[\w-]+$/],
+    defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+  }
+};
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    'ember-bootstrap': {
-      'bootstrapVersion': 4,
-      'importBootstrapFont': false,
-      'importBootstrapCSS': false
+    postcssOptions: {
+      compile: {
+        plugins: [
+          {
+            module: require('postcss-import'),
+            options: {
+              path: [
+                'node_modules',
+                '../../node_modules' // Monorepos suck...
+              ]
+            }
+          },
+          require('tailwindcss')('./app/tailwind/config.js'),
+          require('postcss-preset-env')({
+            features: {
+              'nesting-rules': true
+            }
+          }),
+          ...isProduction ? [purgeCSS] : []
+        ]
+      }
     }
   });
 

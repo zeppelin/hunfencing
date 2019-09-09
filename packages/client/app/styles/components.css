@@ -1,0 +1,6 @@
+.rankings--filters {
+  @screen sm {
+    @apply sticky;
+    top: 1rem;
+  }
+}

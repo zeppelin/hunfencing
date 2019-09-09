@@ -1,0 +1,13 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+@import "vendor-overrides/ember-basic-dropdown.css";
+@import "components/age-group-badge.css";
+@import "components/button.css";
+@import "components/dropdown.css";
+@import "components/rankings.css";
+@import "components/rankings-table.css";
+@import "components.css";
+
+@import "tailwindcss/utilities";
+@import "utilities.css";

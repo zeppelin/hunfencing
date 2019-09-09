@@ -1,0 +1,59 @@
+<div class="grid-auto-columns column-gap-2 lg:column-gap-4" ...attributes>
+  <BasicDropdown @horizontalPosition="auto-right" as |dd|>
+    <dd.Trigger
+      data-test-season-filter
+      class="
+        Button flex-grow
+        {{if (not-eq @season this.defaultSeason) "text-orange-500 border-orange-300"}}
+      "
+    >
+      {{this.selectedSeason.name}}
+      {{fa-icon "chevron-down" class="Button__chevron"}}
+    </dd.Trigger>
+
+    <dd.Content {{on "click" (action dd.actions.close)}} class="bg-transparent">
+      <ul class="list-none shadow-xl rounded-lg bg-white">
+        {{#each this.seasons as |season|}}
+          <li>
+            <a
+              {{on "click" (action (transition-to (query-params season=season.value)))}}
+              class="py-1 px-4 block {{if (eq season.value @season) "font-bold"}}"
+              href={{url-for "rankings" (query-params season=season.value)}}
+            >
+              {{season.name}}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </dd.Content>
+  </BasicDropdown>
+
+  <div class="ButtonGroup flex-grow" role="group">
+    <button
+      type="button"
+      class="Button"
+      disabled={{not this.previousSeason}}
+      onclick={{action selectPrevious}}
+    >
+      {{fa-icon "arrow-left" class="text-sm"}}
+    </button>
+
+    <button
+      type="button"
+      class="Button px-1 {{if (not-eq @season this.defaultSeason) "text-blue-500 underline"}}"
+      disabled={{eq @season this.defaultSeason}}
+      onclick={{transition-to (query-params season=this.defaultSeason)}}
+    >
+      {{t "season.current"}}
+    </button>
+
+    <button
+      type="button"
+      class="Button"
+      disabled={{not this.nextSeason}}
+      onclick={{action selectNext}}
+    >
+      {{fa-icon "arrow-right" class="text-sm"}}
+    </button>
+  </div>
+</div>
