@@ -17,9 +17,12 @@ category:
   senior: Felnőtt
   junior: Junior
   cadet: Kadét
-  u16: Serdülő
-  u15: Újonc
+  u15: Serdülő
+  u14: Újonc
   u13: Gyermek
+  u12: Bambi
+  u11: Törpici
+  u10: Csibe
 season:
   current: Aktuális szezon
   to-current: Aktuális szezonra

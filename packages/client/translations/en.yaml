@@ -17,9 +17,12 @@ category:
   senior: Senior
   junior: Junior
   cadet: Cadet
-  u16: U16
   u15: U15
+  u14: U14
   u13: U13
+  u12: U12
+  u11: U11
+  u10: U10
 season:
   current: Current season
   to-current: To current season
