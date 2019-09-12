@@ -1,9 +1,9 @@
-import { readMappingsFromFile } from '@hunfencing/server/scraper/mappings';
-import { ROOT_URL } from '@hunfencing/server/scraper/resources';
-import { makeRequest } from '@hunfencing/server/scraper/resources/rankings';
 import ora from 'ora';
 
 import Cache from '../fastboot-server/cache';
+import { readMappingsFromFile } from '../scraper/mappings';
+import { ROOT_URL } from '../scraper/resources';
+import { makeRequest } from '../scraper/resources/rankings';
 
 const refreshRankings = async () => {
   let mappings = await readMappingsFromFile('rankings');
