@@ -10,8 +10,8 @@ export const CATEGORY_NAMES = <Recast<
   'senior',
   'junior',
   'cadet',
-  'u16',
   'u15',
+  'u14',
   'u13'
 ]);
 
@@ -28,7 +28,7 @@ export type CategoryName =
   | 'senior'
   | 'junior'
   | 'cadet'
-  | 'u16'
   | 'u15'
+  | 'u14'
   | 'u13'
 ;
