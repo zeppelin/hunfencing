@@ -1,0 +1,7 @@
+.NavLink {
+  @apply border-yellow-400;
+
+  &.active {
+    @apply border-b-2 border-yellow-400;
+  }
+}
