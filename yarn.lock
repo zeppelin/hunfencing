@@ -2097,6 +2097,14 @@
   dependencies:
     "@types/rsvp" "*"
 
+"@types/ember__object@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-3.1.1.tgz#ea0a8313fc80ac5af4826190da3e688d72f02d58"
+  integrity sha512-VQk38Dqiz0fVNt4RIrxyIanDqCFYDZB6QPHzdMjnjQSGeEHh130B+lFECtNQrO1V9czXzm588qpIBdPp9N2H9g==
+  dependencies:
+    "@types/ember__object" "*"
+    "@types/rsvp" "*"
+
 "@types/ember__polyfills@*":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@types/ember__polyfills/-/ember__polyfills-3.0.2.tgz#ccd9f510a4895abf92435c968f9e582e86a81b25"
