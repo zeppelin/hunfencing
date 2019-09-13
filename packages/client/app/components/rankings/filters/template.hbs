@@ -1,0 +1,9 @@
+<form ...attributes>
+  <Rankings::Filters::Season @season={{@season}} class="mb-2 sm:mb-4 border-b pb-2 sm:pb-4" />
+  <Rankings::Filters::Category @category={{@category}} class="mb-2 sm:mb-4" />
+
+    <div class="grid-auto-columns column-gap-2 lg:column-gap-4 mb-2 sm:mb-4">
+      <Rankings::Filters::Gender @gender={{@gender}} class="" />
+      <Rankings::Filters::Weapon @weapon={{@weapon}} class="" />
+    </div>
+</form>

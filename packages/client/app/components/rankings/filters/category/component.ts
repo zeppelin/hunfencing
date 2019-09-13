@@ -10,10 +10,6 @@ export default class RankingsCategoryFilter extends Component<{
   categories: CategoryName[] = CATEGORY_NAMES;
   mainCategories: CategoryName[] = ['senior', 'junior', 'cadet'];
 
-  select(category: string) {
-    this.router.transitionTo({ queryParams: { category } });
-  }
-
   get isMainCategorySelected() {
     let { category } = this.args;
     if (!category) {

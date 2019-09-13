@@ -1,0 +1,18 @@
+<div class="ButtonGroup" role="group" ...attributes>
+  {{#each
+    (array
+      (hash name="male" value="m")
+      (hash name="female" value="f")
+    )
+  as |gender|
+  }}
+    <button
+      data-test-gender-button={{gender.value}}
+      type="button"
+      onclick={{transition-to (query-params gender=gender.value)}}
+      class="Button {{if (eq @gender gender.value) "--active"}}"
+    >
+      {{t (concat "gender." gender.name)}}
+    </button>
+  {{/each}}
+</div>

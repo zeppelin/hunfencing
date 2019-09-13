@@ -1,0 +1,17 @@
+.RankingsTable {
+  & td {
+    @apply py-1 px-3 whitespace-no-wrap align-top text-sm;
+
+    @screen lg {
+      @apply py-2 text-base;
+    }
+  }
+
+  & tr:nth-child(even) td {
+    @apply bg-gray-200;
+  }
+
+  & tr:nth-child(odd) td {
+    @apply bg-gray-100;
+  }
+}

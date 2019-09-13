@@ -1,0 +1,28 @@
+<div class="ButtonGroup" role="group" ...attributes>
+  <button
+    {{on "click" (transition-to (query-params weapon="e"))}}
+    data-test-weapon-button="e"
+    type="button"
+    class="Button {{if (eq @weapon "e") "--active"}}"
+  >
+    {{t "weapon.epee"}}
+  </button>
+
+  <button
+    {{on "click" (transition-to (query-params weapon="f"))}}
+    data-test-weapon-button="f"
+    type="button"
+    class="Button {{if (eq @weapon "f") "--active"}}"
+  >
+    {{t "weapon.foil"}}
+  </button>
+
+  <button
+    {{on "click" (transition-to (query-params weapon="s"))}}
+    data-test-weapon-button="s"
+    type="button"
+    class="Button {{if (eq @weapon "s") "--active"}}"
+  >
+    {{t "weapon.sabre"}}
+  </button>
+</div>

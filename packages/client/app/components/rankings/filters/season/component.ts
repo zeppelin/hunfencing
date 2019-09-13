@@ -28,10 +28,6 @@ export default class RankingsSeasonFilter extends Component<{
     return this.seasons.find(({ value }) => value === this.args.season );
   }
 
-  select(season: string) {
-    this.router.transitionTo({ queryParams: { season } });
-  }
-
   selectNext() {
     if (this.nextSeason) {
       this.router.transitionTo({

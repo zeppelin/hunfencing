@@ -1,21 +1,32 @@
-<div class="container">
-  <div class="d-flex flex-row">
-    <h1 class="display-4 mb-4">{{t "route.rankings"}}</h1>
-    <Spinner @isLoading={{this.isLoading}} class="ml-auto align-self-center" />
+<div class="bg-yellow-300 mb-8">
+  <div class="container mx-auto px-4 flex items-end pt-8 pb-4">
+    <h1 class="text-5xl">{{t "route.rankings"}}</h1>
+
+    <Spinner
+      @isLoading={{this.isLoading}}
+      class="ml-auto px-2 rounded-full bg-green-600 text-white text-sm"
+    />
+  </div>
+</div>
+
+<div class="container mx-auto px-4 mb-8 RankingsLayout">
+  <div class="sm:order-2 mb-8">
+    <Rankings::Filters
+      @category={{this.category}}
+      @gender={{this.gender}}
+      @weapon={{this.weapon}}
+      @season={{this.season}}
+      class="text-sm rankings--filters"
+    />
   </div>
 
-  <RankingsFilters
-    @category={{this.category}}
-    @gender={{this.gender}}
-    @weapon={{this.weapon}}
-    @season={{this.season}}
-  />
-
-  {{#if this.loadError}}
-    <div class="alert alert-danger text-center">
-      {{t "load-error"}}
-    </div>
-  {{else}}
-    <RankingsTable @rankings={{this.rankings}} />
-  {{/if}}
+  <div class="overflow-x-auto">
+    {{#if this.loadError}}
+      <div class="alert alert-danger text-center">
+        {{t "load-error"}}
+      </div>
+    {{else}}
+      <Rankings::Table @rankings={{this.rankings}} />
+    {{/if}}
+  </div>
 </div>

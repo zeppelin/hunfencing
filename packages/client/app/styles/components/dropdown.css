@@ -1,0 +1,25 @@
+.Dropdown__container {
+  @apply bg-transparent;
+}
+
+.Dropdown__list {
+  @apply list-none shadow-xl rounded-lg bg-white;
+
+  @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+  }
+}
+
+.Dropdown__link {
+  @apply py-1 px-4 block;
+
+  &:hover {
+    @apply text-blue-500 underline;
+  }
+
+  &.--selected {
+    @apply font-bold;
+  }
+}

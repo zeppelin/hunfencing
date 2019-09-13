@@ -1,0 +1,40 @@
+.age-group-badge {
+  @apply border;
+
+  &.--senior {
+    @apply border-indigo-500 text-indigo-900 bg-indigo-300;
+  }
+
+  &.--junior {
+    @apply border-blue-500 text-gray-900 bg-blue-300;
+  }
+
+  &.--cadet {
+    @apply border-blue-400 text-blue-800 bg-blue-200;
+  }
+
+  &.--u15 {
+    @apply border-green-500 text-gray-900 bg-green-300;
+  }
+
+  &.--u14 {
+    @apply border-green-400 text-green-800 bg-green-200;
+  }
+
+  &.--u13,
+  &.--u12,
+  &.--u11 {
+    @apply border-green-300 text-green-700 bg-green-100;
+  }
+
+  &.--u10 {
+    @apply border-yellow-400 text-yellow-700 bg-yellow-200;
+  }
+
+  &.--veteran40,
+  &.--veteran50,
+  &.--veteran60,
+  &.--veteran70 {
+    @apply border-gray-500 text-gray-900 bg-gray-300;
+  }
+}

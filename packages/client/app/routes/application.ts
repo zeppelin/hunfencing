@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import ENV from '@hunfencing/client/config/environment';
 import { pick as pickAcceptLanguage } from 'accept-language-parser';
-import FastBootService from 'ember-cli-fastboot/services/fastboot';
+import FastBootService from 'ember-cli-fastboot/service';
 
 const { defaultLocale } = ENV.hunfencing;
 

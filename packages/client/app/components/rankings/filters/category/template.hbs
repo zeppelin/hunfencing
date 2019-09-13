@@ -1,0 +1,59 @@
+<div class="ButtonGroup mb-2" role="group" ...attributes>
+  {{#each this.mainCategories as |category|}}
+    <button
+      {{on "click" (transition-to (query-params category=category))}}
+      data-test-category-filter={{category}}
+      type="button"
+      class="Button flex-grow {{if (eq category @category) "--active"}}"
+    >
+      {{t (concat "category." category)}}
+    </button>
+  {{/each}}
+
+  <BasicDropdown @horizontalPosition="auto-right" as |dd|>
+    <dd.Trigger
+      class="Button flex-shrink --last-child {{if (not this.isMainCategorySelected) "--active"}}"
+      aria-haspopup="listbox"
+      data-test-season-filter
+    >
+      {{#if (not this.isMainCategorySelected)}}
+        {{t (concat "category." @category)}}
+      {{else}}
+        {{fa-icon "ellipsis-h"}}
+      {{/if}}
+
+      {{fa-icon "chevron-down" class="Button__chevron"}}
+    </dd.Trigger>
+
+    <dd.Content {{on "click" (action dd.actions.close)}} class="Dropdown__container">
+      <ul class="Dropdown__list" role="listbox" tabindex="-1">
+        {{#each
+          (array
+            "u15" "u14" "u13"
+            "|"
+            "veteran40" "veteran50" "veteran60" "veteran70"
+            "|"
+            "amateur"
+          )
+        as |category|
+        }}
+          {{#let (eq category @category) as |isSelected|}}
+            {{#if (eq category "|")}}
+              <li><hr class="border-gray-500 opacity-25"></li>
+            {{else}}
+              <li role="option" aria-selected={{if isSelected "true"}}>
+                <a
+                  {{on "click" (action (transition-to (query-params category=category)))}}
+                  href={{url-for "rankings" (query-params category=category)}}
+                  class="Dropdown__link {{if isSelected "--selected"}}"
+                >
+                  {{t (concat "category." category)}}
+                </a>
+              </li>
+            {{/if}}
+          {{/let}}
+        {{/each}}
+      </ul>
+    </dd.Content>
+  </BasicDropdown>
+</div>

@@ -1,0 +1,47 @@
+{{#if @rankings}}
+  <table class="RankingsTable w-full table-fixed xl:table-auto">
+    <tbody>
+      {{#each @rankings as |ranking|}}
+        <tr>
+          <td class="align-top text-right w-1 xl:w-auto xl:pl-0">
+            {{ranking.rank}}
+          </td>
+          <td class="w-full xl:w-auto">
+            <div class="flex">
+              <a
+                href={{ranking.link}}
+                class="pr-2 mr-auto font-bold whitespace-normal"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ranking.name}}
+                {{fa-icon "external-link" class="ml-1 text-sm text-blue-600"}}
+              </a>
+
+              <strong class="xl:hidden">{{ranking.points}}</strong>
+            </div>
+
+            <div class="flex xl:hidden items-end">
+              <span class="mr-auto text-gray-600 whitespace-normal">
+                {{ranking.club}}
+              </span>
+              <small class="text-gray-600">{{ranking.birthdate}}</small>
+            </div>
+          </td>
+          <td class="hidden xl:table-cell">{{ranking.club}}</td>
+          <td class="hidden xl:table-cell">{{ranking.birthdate}}</td>
+          <td class="hidden xl:table-cell">
+            <AgeGroupBadge @category={{ranking.category}} />
+          </td>
+          <td class="hidden xl:table-cell font-bold text-right">
+            {{ranking.points}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else if (is-array @rankings)}}
+  <div class="bg-gray-100 text-gray-700 px-4 py-3 text-center" role="alert">
+    <p>{{t "error.missing-data"}}</p>
+  </div>
+{{/if}}
