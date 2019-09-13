@@ -626,6 +626,14 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-typescript" "^7.2.0"
 
+"@babel/plugin-transform-typescript@~7.4.0":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.4.5.tgz#ab3351ba35307b79981993536c93ff8be050ba28"
+  integrity sha512-RPB/YeGr4ZrFKNwfuQRlMf2lxoCUaU01MTw39/OFE/RiL8HDjtn68BwEPft1P7JN4akyEmjGWAMNldOV7o9V2g==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-typescript" "^7.2.0"
+
 "@babel/plugin-transform-unicode-regex@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-regex/-/plugin-transform-unicode-regex-7.0.0.tgz#c6780e5b1863a76fe792d90eded9fcd5b51d68fc"
@@ -807,7 +815,7 @@
     "@ember-decorators/utils" "^6.1.1"
     ember-cli-babel "^7.1.3"
 
-"@ember-decorators/utils@^6.1.1":
+"@ember-decorators/utils@^6.0.0", "@ember-decorators/utils@^6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-6.1.1.tgz#6b619814942b4fb3747cfa9f540c9f05283d7c5e"
   integrity sha512-0KqnoeoLKb6AyoSU65TRF5T85wmS4uDn06oARddwNPxxf/lt5jQlh41uX3W7V/fWL9tPu8x1L1Vvpc80MN1+YA==
@@ -5971,7 +5979,7 @@ ember-auto-import@^1.2.13:
     walk-sync "^0.3.3"
     webpack "^4.12.0"
 
-ember-auto-import@^1.2.20:
+ember-auto-import@^1.2.20, ember-auto-import@^1.4.0:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.5.2.tgz#e97ed96b600caa6090ffed83e4611c3e7ec9bad7"
   integrity sha512-skVQpfdc6G5OVRsyemDn3vI1nj/iBBgnoqRLRka0ZbDT2GqelmyJ86bp+Bd/ztJe45Le3we+LXbR7T54RU5A9w==
@@ -6160,7 +6168,7 @@ ember-cli-htmlbars@^2.0.1, ember-cli-htmlbars@^2.0.2, ember-cli-htmlbars@^2.0.3:
     json-stable-stringify "^1.0.0"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^3.1.0:
+ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-3.1.0.tgz#87806c2a0bca2ab52d4fb8af8e2215c1ca718a99"
   integrity sha512-cgvRJM73IT0aePUG7oQ/afB7vSRBV3N0wu9BrWhHX2zkR7A7cUBI7KC9VPk6tbctCXoM7BRGsCC4aIjF7yrfXA==
@@ -6355,6 +6363,24 @@ ember-cli-typescript@^2.0.0, ember-cli-typescript@^2.0.0-rc.1:
     resolve "^1.5.0"
     rsvp "^4.8.1"
     semver "^5.5.1"
+    stagehand "^1.0.0"
+    walk-sync "^1.0.0"
+
+ember-cli-typescript@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-2.0.2.tgz#464984131fbdc05655eb61d1c3cdd911d3137f0d"
+  integrity sha512-7I5azCTxOgRDN8aSSnJZIKSqr+MGnT+jLTUbBYqF8wu6ojs2DUnTePxUcQMcvNh3Q3B1ySv7Q/uZFSjdU9gSjA==
+  dependencies:
+    "@babel/plugin-proposal-class-properties" "^7.1.0"
+    "@babel/plugin-transform-typescript" "~7.4.0"
+    ansi-to-html "^0.6.6"
+    debug "^4.0.0"
+    ember-cli-babel-plugin-helpers "^1.0.0"
+    execa "^1.0.0"
+    fs-extra "^7.0.0"
+    resolve "^1.5.0"
+    rsvp "^4.8.1"
+    semver "^6.0.0"
     stagehand "^1.0.0"
     walk-sync "^1.0.0"
 
@@ -6721,6 +6747,18 @@ ember-parachute@^1.0.2:
   integrity sha512-wpTn179au/BE2+p4z9mQRh2Cy/a5J038oPpY2Buja3gDO/Qh64ny3klr4dxMRQ5GePniglkWK/LW3qitcs902A==
   dependencies:
     ember-cli-babel "^7.1.2"
+
+ember-query-params-service@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-query-params-service/-/ember-query-params-service-0.4.0.tgz#5e85d18b4fa978e52b988d73d1c46344ea51e084"
+  integrity sha512-75Ae08/Ycg6ny4jSN8BTc+PtMeY0aq2zSA23+XWxzDwyxq0PXWYhEunilCQLYWNMbJ7FdThN1wxJW74SI3f0lQ==
+  dependencies:
+    "@ember-decorators/utils" "^6.0.0"
+    ember-auto-import "^1.4.0"
+    ember-cli-babel "^7.7.3"
+    ember-cli-htmlbars "^3.0.0"
+    ember-cli-typescript "^2.0.1"
+    qs "^6.7.0"
 
 ember-qunit@^4.4.1:
   version "4.5.1"
@@ -11823,6 +11861,11 @@ q@^1.5.1:
 qs@6.5.2, qs@^6.2.0, qs@^6.4.0, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+
+qs@^6.7.0:
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.8.0.tgz#87b763f0d37ca54200334cd57bb2ef8f68a1d081"
+  integrity sha512-tPSkj8y92PfZVbinY1n84i1Qdx75lZjMQYx9WZhnkofyxzw2r7Ho39G3/aEvSUdebxpnnM4LZJCtvE/Aq3+s9w==
 
 query-string@^5.0.1:
   version "5.1.1"
