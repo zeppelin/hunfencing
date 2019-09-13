@@ -1,5 +1,6 @@
 route:
   index: Nyitólap
+  competitions: Versenyek
   rankings: Ranglista
 gender:
   male: Férfi

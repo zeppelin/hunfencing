@@ -1,5 +1,6 @@
 route:
   index: Home
+  competitions: Competitions
   rankings: Rankings
 gender:
   male: Male
