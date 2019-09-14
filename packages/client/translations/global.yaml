@@ -1,6 +1,7 @@
 global:
   app:
     title: Hunfencing
+    title-abbrev: HF
   locale:
     abbrev:
       hu: HU

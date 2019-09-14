@@ -31,10 +31,59 @@
     @apply border-yellow-400 text-yellow-700 bg-yellow-200;
   }
 
+  &.--veteran,
   &.--veteran40,
   &.--veteran50,
   &.--veteran60,
   &.--veteran70 {
     @apply border-gray-500 text-gray-900 bg-gray-300;
+  }
+
+  &.--amateur {
+    @apply border-pink-400 text-pink-700 bg-pink-200;
+  }
+}
+
+.AgeGroupBg {
+  &.--senior {
+    @apply bg-indigo-500;
+  }
+
+  &.--junior {
+    @apply bg-blue-500;
+  }
+
+  &.--cadet {
+    @apply bg-blue-400;
+  }
+
+  &.--u15 {
+    @apply bg-green-500;
+  }
+
+  &.--u14 {
+    @apply bg-green-400;
+  }
+
+  &.--u13,
+  &.--u12,
+  &.--u11 {
+    @apply bg-green-300;
+  }
+
+  &.--u10 {
+    @apply bg-yellow-400;
+  }
+
+  &.--veteran,
+  &.--veteran40,
+  &.--veteran50,
+  &.--veteran60,
+  &.--veteran70 {
+    @apply bg-gray-500;
+  }
+
+  &.--amateur {
+    @apply bg-pink-400;
   }
 }

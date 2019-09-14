@@ -1,0 +1,31 @@
+<div class="flex" ...attributes>
+  <div class="ButtonGroup flex-1" role="group">
+    {{#each
+      (array
+        (hash name="epee" value="e")
+        (hash name="foil" value="f")
+        (hash name="sabre" value="s")
+      )
+    as |weapon|
+    }}
+      <button
+        {{on "click" (action this.select weapon.value)}}
+        data-test-weapon-button={{weapon.value}}
+        type="button"
+        class="Button {{if (contains weapon.value this.weapons) "--active"}}"
+      >
+        {{t (concat "weapon." weapon.name)}}
+      </button>
+    {{/each}}
+  </div>
+
+  <button
+    {{on "click" (action this.selectAll)}}
+    data-test-weapon-button="any"
+    type="button"
+    class="Button ml-2"
+    disabled={{this.isAllSelected}}
+  >
+    {{t "weapon.any"}}
+  </button>
+</div>

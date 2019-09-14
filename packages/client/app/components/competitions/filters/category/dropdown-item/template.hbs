@@ -1,0 +1,17 @@
+<button
+  {{on "click" (action @onClick)}}
+  type="button"
+  class="
+    Dropdown__link
+    flex items-center
+    {{if @isSelected "--selected"}}
+  "
+  ...attributes
+>
+  <div class="AgeGroupBg --{{@category}} rounded-full w-2 h-2 mr-1 border-none"></div>
+  {{t (concat "category." @category)}}
+
+  {{#if @isSelected}}
+    {{fa-icon "check" class="text-green-700 ml-2"}}
+  {{/if}}
+</button>

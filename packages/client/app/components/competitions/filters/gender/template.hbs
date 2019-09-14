@@ -1,0 +1,30 @@
+<div class="flex" ...attributes>
+  <div class="ButtonGroup flex-1" role="group">
+    {{#each
+      (array
+        (hash name="male" value="m")
+        (hash name="female" value="f")
+      )
+    as |gender|
+    }}
+      <button
+        {{on "click" (action this.select gender.value)}}
+        data-test-gender-button={{gender.value}}
+        type="button"
+        class="Button {{if (contains gender.value this.genders) "--active"}}"
+      >
+        {{t (concat "gender." gender.name)}}
+      </button>
+    {{/each}}
+  </div>
+
+  <button
+    {{on "click" (action this.selectAll)}}
+    data-test-gender-button="any"
+    type="button"
+    class="Button ml-2"
+    disabled={{this.isAllSelected}}
+  >
+    {{t "gender.any"}}
+  </button>
+</div>

@@ -11,7 +11,9 @@
 
 <div class="container mx-auto px-4 mb-8 RankingsLayout">
   <div class="sm:order-2 mb-8">
-    <Competitions::Filters />
+    <Competitions::Filters
+      @categories={{this.categories}}
+    />
   </div>
 
   <div class="overflow-x-auto">

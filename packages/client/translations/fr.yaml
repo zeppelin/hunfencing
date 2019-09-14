@@ -5,12 +5,16 @@ route:
 gender:
   male: Masculin
   female: Féminin
+  any: Tout
 weapon:
   epee: Épée
   foil: Fleuret
   sabre: Sabre
+  any: Tout
 category:
+  all: Toutes Catégories
   amateur: Amatrice
+  veteran: Vétéran
   veteran70: Vétéran 70+
   veteran60: Vétéran 60+
   veteran50: Vétéran 50+
@@ -27,6 +31,8 @@ category:
 season:
   current: Saison en cours
   to-current: À la saison en cours
+team: Équipe
+wheelchair: Fauteuil Roulant
 error:
   missing-data: Pas de donnés.
 loading: Chargement...

@@ -1,0 +1,89 @@
+<div ...attributes>
+  <BasicDropdown @horizontalPosition="auto-right" @renderInPlace={{false}} as |dd|>
+    <dd.Trigger
+      class="Button"
+      style="width: 100% !important;"
+      aria-haspopup="listbox"
+      data-test-category-filter
+    >
+      {{#if (is-empty this.categories)}}
+        {{t "category.all"}}
+      {{/if}}
+
+      <div class="flex flex-wrap justify-start flex-shrink">
+        {{#each this.categories as |category|}}
+          <span class="inline-flex items-center mr-3">
+            <div class="AgeGroupBg --{{category}} rounded-full w-2 h-2 mr-1 border-none"></div>
+            {{t (concat "category." category)}}
+          </span>
+        {{/each}}
+      </div>
+
+      {{fa-icon "chevron-down" class="Button__chevron"}}
+    </dd.Trigger>
+
+    <dd.Content {{on "click" (action dd.actions.close)}} class="Dropdown__container">
+      <div class="flex">
+        <ul class="Dropdown__list" role="listbox" tabindex="-1">
+          {{#each (array "senior" "junior" "cadet") as |category|}}
+            {{#let (contains category this.categories) as |isSelected|}}
+              <li aria-selected={{if isSelected "true"}}>
+                <Competitions::Filters::Category::DropdownItem
+                  @onClick={{stop-propagation (action this.select category)}}
+                  @category={{category}}
+                  @isSelected={{isSelected}}
+                />
+              </li>
+            {{/let}}
+          {{/each}}
+
+          <li><hr class="border-gray-500 opacity-25"></li>
+
+          {{#each (array "veteran" "amateur") as |category|}}
+            {{#let (contains category this.categories) as |isSelected|}}
+              <li aria-selected={{if isSelected "true"}}>
+                <Competitions::Filters::Category::DropdownItem
+                  @onClick={{stop-propagation (action this.select category)}}
+                  @category={{category}}
+                  @isSelected={{isSelected}}
+                />
+              </li>
+            {{/let}}
+          {{/each}}
+        </ul>
+
+        <ul class="Dropdown__list" role="listbox" tabindex="-1">
+          {{#each
+            (array
+              "u15" "u14" "u13" "u12" "u11" "u10"
+            )
+          as |category|
+          }}
+            {{#let (contains category this.categories) as |isSelected|}}
+              {{#if (eq category "|")}}
+                <li><hr class="border-gray-500 opacity-25"></li>
+              {{else}}
+                <li aria-selected={{if isSelected "true"}}>
+                  <Competitions::Filters::Category::DropdownItem
+                    @onClick={{stop-propagation (action this.select category)}}
+                    @category={{category}}
+                    @isSelected={{isSelected}}
+                  />
+                </li>
+              {{/if}}
+            {{/let}}
+          {{/each}}
+        </ul>
+      </div>
+
+      <hr class="border-gray-500 opacity-25">
+
+      <Competitions::Filters::Category::DropdownItem
+        @onClick={{action this.selectAll}}
+        @category="all"
+        @isSelected={{is-empty this.categories}}
+        class="justify-center"
+      />
+    </dd.Content>
+  </BasicDropdown>
+</div>
