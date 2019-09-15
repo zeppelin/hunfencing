@@ -4,6 +4,7 @@ import Component from '@glimmer/component';
 export default class RankingsSeasonFilter extends Component {
   @service intl!: unsafe;
   @service cookies!: unsafe;
+  @service moment!: unsafe;
 
   get currentLocale(): string {
     return this.intl.locale[0];
@@ -12,5 +13,6 @@ export default class RankingsSeasonFilter extends Component {
   selectLocale(locale: string) {
     this.cookies.write('locale', locale);
     this.intl.setLocale([locale, 'global']);
+    this.moment.setLocale(locale);
   }
 }
