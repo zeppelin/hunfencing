@@ -11,7 +11,7 @@
         {{on "click" (action this.select gender.value)}}
         data-test-gender-button={{gender.value}}
         type="button"
-        class="Button {{if (contains gender.value this.genders) "--active"}}"
+        class="Button {{if (contains gender.value @genders) "--active"}}"
       >
         {{t (concat "gender." gender.name)}}
       </button>

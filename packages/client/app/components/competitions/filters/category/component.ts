@@ -4,7 +4,10 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { CategoryName, COMPETITION_CATEGORIES } from '@hunfencing/client/models/category';
 
-export default class CompetitionsCategoryFilter extends Component {
+export default class CompetitionsCategoryFilter extends Component<{
+  categories: CategoryName[];
+  onSelect: (value: CategoryName[]) => void;
+}> {
   @service intl!: any;
   @service queryParams!: any;
 
@@ -12,15 +15,20 @@ export default class CompetitionsCategoryFilter extends Component {
 
   @action
   select(category: CategoryName) {
-    if (this.categories.includes(category)) {
-      this.categories = this.categories.filter((c) => c !== category);
+    let { categories } = this.args;
+    if (categories.includes(category)) {
+      categories = categories.filter((c) => c !== category);
     } else {
-      this.categories = COMPETITION_CATEGORIES.filter((c) => this.categories.concat([category]).includes(c));
+      categories = COMPETITION_CATEGORIES.filter((c) =>
+          categories.concat([category]).includes(c)
+        );
     }
+
+    this.args.onSelect(categories);
   }
 
   @action
   selectAll() {
-    this.categories = [];
+    this.args.onSelect([]);
   }
 }

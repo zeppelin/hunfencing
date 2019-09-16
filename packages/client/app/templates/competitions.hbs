@@ -13,6 +13,12 @@
   <div class="sm:order-2 mb-8">
     <Competitions::Filters
       @categories={{this.categories}}
+      @genders={{this.genders}}
+      @weapons={{this.weapons}}
+      @onChangeCategories={{this.updateCategories}}
+      @onChangeGenders={{this.updateGenders}}
+      @onChangeWeapons={{this.updateWeapons}}
+      class="CompetitionsFilters"
     />
   </div>
 
@@ -22,7 +28,16 @@
         {{t "load-error"}}
       </div>
     {{else}}
-      <Competitions::List />
+      <Competitions::List
+        @competitions={{this.filteredModel}}
+        @filters={{hash
+          category=this.hasCategoryFilter
+          gender=this.hasGenderFilter
+          weapon=this.hasWeaponFilter
+          team=false
+          wheelchair=false
+        }}
+      />
     {{/if}}
   </div>
 </div>

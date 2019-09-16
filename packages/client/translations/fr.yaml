@@ -33,6 +33,8 @@ season:
   to-current: À la saison en cours
 team: Équipe
 wheelchair: Fauteuil Roulant
+results: Résultats
+registrations: Inscriptions
 error:
   missing-data: Pas de donnés.
 loading: Chargement...

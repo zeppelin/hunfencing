@@ -39,6 +39,8 @@ module.exports = function(environment) {
     namespacing: false
   };
 
+  ENV['ember-cli-mirage'] = {};
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -64,6 +66,8 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
 
     ENV.fastboot.hostWhitelist = [/.*/]; // TODO: configure this!
+
+    ENV['ember-cli-mirage'].enabled = true;
   }
 
   return ENV;

@@ -12,7 +12,7 @@
         {{on "click" (action this.select weapon.value)}}
         data-test-weapon-button={{weapon.value}}
         type="button"
-        class="Button {{if (contains weapon.value this.weapons) "--active"}}"
+        class="Button {{if (contains weapon.value @weapons) "--active"}}"
       >
         {{t (concat "weapon." weapon.name)}}
       </button>

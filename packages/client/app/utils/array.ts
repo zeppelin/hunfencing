@@ -9,3 +9,7 @@ export const toggle = <T extends unknown>(arr: T[], val: T, keepWhenLast = false
     return arr.concat([val]).sort();
   }
 };
+
+export const hasSingleValueOf = <T>(arr: T[], val: T): boolean => {
+  return arr.length === 1 && arr[0] === val;
+};

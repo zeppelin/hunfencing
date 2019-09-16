@@ -33,6 +33,8 @@ season:
   to-current: To current season
 team: Team
 wheelchair: Wheelchair
+results: Results
+registrations: Registrations
 error:
   missing-data: No such data.
 loading: Loading...
