@@ -19,6 +19,11 @@ const purgeCSS = {
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    babel: {
+      // Enables VS Code debugger interop
+      sourceMaps: 'inline'
+    },
+
     postcssOptions: {
       compile: {
         plugins: [
