@@ -4,7 +4,7 @@ import * as util from 'util';
 
 const readFile = util.promisify(fs.readFile);
 
-export const readMappingsFromFile = async (resource: string): Promise<Dict<unknown>> => {
+export const readMappingsFromFile = async (resource: string): Promise<Dict<Dict<unknown>>> => {
   let mappingsData = await readFile(`${process.cwd()}/packages/server/scraper/mappings/${resource}.jsonc`, 'utf-8');
   let mappings = parseJSONC(mappingsData);
   return mappings;

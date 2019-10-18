@@ -1,0 +1,30 @@
+{
+  "attributes": {
+    "weapon": {
+      "párbajtőr": "epee",
+      "tőr": "foil",
+      "kard": "sabre"
+    },
+    "category": {
+      "Szabadidős": "amateur",
+      "felnőtt": "senior",
+      "Felnőtt": "senior",
+      "Junior": "junior",
+      "kadét": "cadet",
+      "Kadét": "cadet",
+      "serdülő": "u15",
+      "Serdülő": "u15",
+      "újonc": "u14",
+      "Újonc": "u14",
+      "gyermek": "u13",
+      "Gyermek": "u13",
+      "bambi": "u12",
+      "Bambi": "u12",
+      "törpici": "u11",
+      "Törpici": "u11",
+      "csibe": "u10",
+      "Csibe": "u10",
+      "Veterán": "veteran"
+    }
+  }
+}
