@@ -16,7 +16,7 @@ export const serializeToJSONAPIFormat = (
     let attributes = serializeAttributes(row, attributeMappings);
 
     return {
-      id: null, // TODO: extract id from fencer profile URL
+      id: row.id,
       type,
       attributes
     };

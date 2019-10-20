@@ -19,6 +19,17 @@ const purgeCSS = {
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    babel: {
+      // Enables VS Code debugger interop
+      sourceMaps: 'inline'
+    },
+
+    moment: {
+      // To cherry-pick specific locale support into your application.
+      // Full list of locales: https://github.com/moment/moment/tree/2.10.3/locale
+      includeLocales: ['fr', 'hu']
+    },
+
     postcssOptions: {
       compile: {
         plugins: [

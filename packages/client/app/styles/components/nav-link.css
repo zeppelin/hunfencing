@@ -1,0 +1,8 @@
+.NavLink {
+  @apply border-yellow-400;
+}
+
+/* purgecss ignore */
+.NavLink.active {
+  @apply border-b-2 border-yellow-400;
+}

@@ -1,0 +1,36 @@
+{{#each @competitions as |comp|}}
+  <div class="mb-8 text-gray-900 flex items-start">
+    <Competitions::List::Date @date={{comp.date}} class="mt-1 mr-4" />
+
+    <div>
+      <h3 class="font-bold text-lg">{{comp.name}}</h3>
+
+      <div class="mb-1 text-gray-600 text-sm">
+        <a
+          href="https://www.google.com/maps/search/{{comp.location}}"
+          rel="noopener"
+          target="blank"
+          class="hover:underline"
+        >
+          {{comp.location}}
+        </a>
+      </div>
+
+      <div class="text-gray-800">
+        <span class={{if @filters.category "border-b-2 border-yellow-400 text-black"}}>
+          {{t (concat "category." comp.category)}}
+        </span>
+        &middot;
+        <span class={{if @filters.gender "border-b-2 border-yellow-400 text-black"}}>
+          {{t (concat "gender." comp.gender)}}
+        </span>
+        &middot;
+        <span class={{if @filters.weapon "border-b-2 border-yellow-400 text-black"}}>
+          {{t (concat "weapon." comp.weapon)}}
+        </span>
+      </div>
+    </div>
+
+    <Competitions::List::Actions @id={{comp.id}} class="ml-auto" />
+  </div>
+{{/each}}

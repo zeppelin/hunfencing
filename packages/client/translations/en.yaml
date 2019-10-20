@@ -1,15 +1,20 @@
 route:
   index: Home
+  competitions: Competitions
   rankings: Rankings
 gender:
   male: Male
   female: Female
+  any: Any
 weapon:
   epee: Epee
   foil: Foil
   sabre: Sabre
+  any: Any
 category:
+  all: All Categories
   amateur: Amateur
+  veteran: Veteran
   veteran70: Veteran 70+
   veteran60: Veteran 60+
   veteran50: Veteran 50+
@@ -26,6 +31,10 @@ category:
 season:
   current: Current season
   to-current: To current season
+team: Team
+wheelchair: Wheelchair
+results: Results
+registrations: Registrations
 error:
   missing-data: No such data.
 loading: Loading...

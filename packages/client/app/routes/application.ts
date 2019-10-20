@@ -7,6 +7,7 @@ import FastBootService from 'ember-cli-fastboot/service';
 const { defaultLocale } = ENV.hunfencing;
 
 export default class Application extends Route {
+  @service moment!: any;
   @service intl!: any;
   @service cookies!: unsafe;
   @service fastboot!: FastBootService;
@@ -53,6 +54,7 @@ export default class Application extends Route {
     }
 
     this.intl.setLocale([locale, 'global']);
+    this.moment.setLocale(locale);
     this.cookies.write('locale', locale);
   }
 }

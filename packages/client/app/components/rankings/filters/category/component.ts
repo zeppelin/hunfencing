@@ -7,7 +7,6 @@ export default class RankingsCategoryFilter extends Component<{
 }> {
   @service router!: any;
 
-  categories: CategoryName[] = CATEGORY_NAMES;
   mainCategories: CategoryName[] = ['senior', 'junior', 'cadet'];
 
   get isMainCategorySelected() {

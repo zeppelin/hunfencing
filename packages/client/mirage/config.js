@@ -18,8 +18,13 @@ export default function() {
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   this.get('/rankings', handleRankings);
+  this.get('/competitions');
 
   if (API_HOST) {
     this.passthrough(`${window.location.protocol}//${API_HOST}/api/**`);
+  }
+
+  if (ENV.environment === 'production') {
+    this.passthrough('/rankings');
   }
 }

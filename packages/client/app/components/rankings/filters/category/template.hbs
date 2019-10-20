@@ -14,7 +14,7 @@
     <dd.Trigger
       class="Button flex-shrink --last-child {{if (not this.isMainCategorySelected) "--active"}}"
       aria-haspopup="listbox"
-      data-test-season-filter
+      data-test-category-filter
     >
       {{#if (not this.isMainCategorySelected)}}
         {{t (concat "category." @category)}}
@@ -41,7 +41,7 @@
             {{#if (eq category "|")}}
               <li><hr class="border-gray-500 opacity-25"></li>
             {{else}}
-              <li role="option" aria-selected={{if isSelected "true"}}>
+              <li aria-selected={{if isSelected "true"}}>
                 <a
                   {{on "click" (action (transition-to (query-params category=category)))}}
                   href={{url-for "rankings" (query-params category=category)}}

@@ -1,15 +1,20 @@
 route:
   index: Nyitólap
+  competitions: Versenyek
   rankings: Ranglista
 gender:
   male: Férfi
   female: Női
+  any: Összes
 weapon:
   epee: Párbajtőr
   foil: Tőr
   sabre: Kard
+  any: Összes
 category:
+  all: Összes Korcsoport
   amateur: Szabadidős
+  veteran: Veterán
   veteran70: Veterán 70+
   veteran60: Veterán 60+
   veteran50: Veterán 50+
@@ -26,6 +31,10 @@ category:
 season:
   current: Aktuális szezon
   to-current: Aktuális szezonra
+team: Csapat
+wheelchair: Kerekesszékes
+results: Eredmények
+registrations: Nevezések
 error:
   missing-data: Nincs adat.
 loading: Betöltés...

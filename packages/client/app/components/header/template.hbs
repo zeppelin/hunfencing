@@ -1,13 +1,24 @@
 <div class="container mx-auto h-16 flex items-center">
   <div class="mx-4">
     <LinkTo @route="index" class="font-bold" data-test-header-link="home">
-      {{t "global.app.title"}}
+      <span class="hidden sm:inline">
+        {{t "global.app.title"}}
+      </span>
+      <span class="sm:hidden">
+        {{t "global.app.title-abbrev"}}
+      </span>
     </LinkTo>
   </div>
 
   <ul class="flex">
     <li class="mx-4">
-      <LinkTo @route="rankings" class="border-b-2 border-yellow-400" data-test-header-link="rankings">
+      <LinkTo @route="competitions" class="NavLink" data-test-header-link="competitions">
+        {{t "route.competitions"}}
+      </LinkTo>
+    </li>
+
+    <li class="mx-4">
+      <LinkTo @route="rankings" class="NavLink" data-test-header-link="rankings">
         {{t "route.rankings"}}
       </LinkTo>
     </li>

@@ -1,0 +1,43 @@
+<div class="bg-yellow-300 mb-8">
+  <div class="container mx-auto px-4 flex items-end pt-8 pb-4">
+    <h1 class="text-5xl">{{t "route.competitions"}}</h1>
+
+    <Spinner
+      @isLoading={{this.isLoading}}
+      class="ml-auto px-2 rounded-full bg-green-600 text-white text-sm"
+    />
+  </div>
+</div>
+
+<div class="container mx-auto px-4 mb-8 RankingsLayout">
+  <div class="sm:order-2 mb-8">
+    <Competitions::Filters
+      @categories={{this.categories}}
+      @genders={{this.genders}}
+      @weapons={{this.weapons}}
+      @onChangeCategories={{this.updateCategories}}
+      @onChangeGenders={{this.updateGenders}}
+      @onChangeWeapons={{this.updateWeapons}}
+      class="CompetitionsFilters"
+    />
+  </div>
+
+  <div class="overflow-x-auto">
+    {{#if this.loadError}}
+      <div class="alert alert-danger text-center">
+        {{t "load-error"}}
+      </div>
+    {{else}}
+      <Competitions::List
+        @competitions={{this.filteredModel}}
+        @filters={{hash
+          category=this.hasCategoryFilter
+          gender=this.hasGenderFilter
+          weapon=this.hasWeaponFilter
+          team=false
+          wheelchair=false
+        }}
+      />
+    {{/if}}
+  </div>
+</div>
