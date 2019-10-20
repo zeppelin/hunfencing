@@ -3,7 +3,7 @@ module.exports = {
     server: true,
   },
   root: true,
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
