@@ -5,6 +5,9 @@
   "author": "Gabor Babicz <gabor.babicz@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
+  "scripts": {
+    "test": "jest tests --silent"
+  },
   "dependencies": {
     "@hunfencing/client": "*",
     "@types/redis": "^2.8.10",
@@ -15,7 +18,10 @@
     "ora": "^3.2.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0"
+    "@typescript-eslint/parser": "^2.4.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0"
   }
 }

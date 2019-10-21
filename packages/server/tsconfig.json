@@ -9,7 +9,14 @@
     "rootDir": ".",
     "skipLibCheck": true,
     "sourceMap": false,
-    "target": "es2018"
+    "target": "es2018",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "jest"
+    ]
   },
   "files": [
     "../shared/global.d.ts",
@@ -18,7 +25,7 @@
   ],
   "exclude": [
     "node_modules",
-    "dist-server"
+    "!node_modules/@types"
   ],
   "include": [
     "../shared/**/*"

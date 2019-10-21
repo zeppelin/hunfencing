@@ -10,13 +10,13 @@ export const formatURL = (baseURL: string, params: Dict<string>, mappings: Dict<
 export const serializeToJSONAPIFormat = (
   type: string,
   rows: Array<Dict<any>>,
-  attributeMappings: Dict<Dict<unknown>>
+  attributeMappings: Dict<Dict<unknown>> = {}
 ) => {
   let data = rows.map((row) => {
     let attributes = serializeAttributes(row, attributeMappings);
 
     return {
-      id: null, // TODO: extract id from fencer profile URL
+      id: row.id,
       type,
       attributes
     };
