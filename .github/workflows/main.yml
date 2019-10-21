@@ -14,6 +14,8 @@ jobs:
       with:
         version: 10.x
     - name: Yarn install & test
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       run: |
         yarn install
         yarn test
