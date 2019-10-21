@@ -8226,9 +8226,9 @@ handlebars@^4.1.2:
     uglify-js "^3.1.4"
 
 handy-redis@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/handy-redis/-/handy-redis-1.5.2.tgz#9f5091d89b70cbd3041779fb7315ceacf33c451c"
-  integrity sha512-LFtH6GOxdmqL7E7yH7M2wZLo5S+ftv+D/zQyW6DrZp+9sssJW1oky96zT8IBmOh8VHJ8mxjgL0owW2Hfecmc2w==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/handy-redis/-/handy-redis-1.6.2.tgz#31496a8322fdf5eea05bd197a4b3c8b0113ebcef"
+  integrity sha512-UVJwFY/38kdNqMbrmbt/lAQl1NzRuCfT5kGdw/xpv38XGSLRZrwQACHIckp24cPfphNMdcjsc7+Ne6EKkaubqA==
   dependencies:
     "@types/redis" "^2.8.6"
     redis "^2.8.0"
