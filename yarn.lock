@@ -7068,11 +7068,12 @@ ember-composable-helpers@^2.2.0:
     broccoli-funnel "^1.0.1"
     ember-cli-babel "^7.1.0"
 
-ember-cookies@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/ember-cookies/-/ember-cookies-0.3.1.tgz#42ca530703092f6cde691103d608a6a5a58f2d76"
+ember-cookies@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ember-cookies/-/ember-cookies-0.5.0.tgz#c78a31cff7b88f0f04e35ad9e237767c4c57daa4"
+  integrity sha512-0rL5KaR4WGH50z1XRT13cqf5Gk+ilRPKDhbbHdv46G7TcMf59cpEIiF+t1SdIBsyPrsbjp1AmfAzfIRNcTMxkQ==
   dependencies:
-    ember-cli-babel "^6.8.2"
+    ember-cli-babel "^7.1.0"
     ember-getowner-polyfill "^1.1.0 || ^2.0.0"
 
 ember-copy@^1.0.0:
