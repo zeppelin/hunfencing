@@ -1,5 +1,7 @@
 # hunfencing
 
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Zeppelin/hunfencing)
+
 ### `@hunfencing/client`
 
 An Ember.js client.

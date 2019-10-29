@@ -1,9 +1,11 @@
-import { click, visit } from '@ember/test-helpers';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import clearAllCookies from 'ember-cookies/clear-all-cookies';
+import { percySnapshot } from 'ember-percy';
 import { setupApplicationTest } from 'ember-qunit';
 import { TestContext } from 'ember-test-helpers';
 import { module, test } from 'qunit';
+
+import { click, visit } from '@ember/test-helpers';
 
 import { handleRankings } from '../../mirage/handlers/rankings';
 
@@ -35,6 +37,15 @@ module('Acceptance | rankings', function(hooks) {
 
   hooks.afterEach(function() {
     clearAllCookies();
+  });
+
+  module('visual', function(hooks) {
+    test('initial state', async function(assert) {
+      assert.expect(0);
+
+      await visit('/rankings');
+      await percySnapshot('rankings');
+    });
   });
 
   module('filters', function(hooks) {
