@@ -6,8 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "build-client": "cd packages/client; ember build --output-path=../../dist-client",
-    "build-server": "tsc -p ./packages/server/tsconfig.json",
+    "build-client": "cd packages/client; npx ember-cli build --output-path=../../dist-client",
+    "build-server": "npx -p typescript tsc -p ./packages/server/tsconfig.json",
     "watch-server": "tsc -w -p ./packages/server/tsconfig.json",
     "fastboot-server": "node ./bin/fastboot-server.js ./dist-client --serve-assets-from ./dist-client --port $PORT",
     "deploy-build": "yarn build-server && yarn build-client --environment=production",
